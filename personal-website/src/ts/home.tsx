@@ -1,7 +1,7 @@
 import { MdWavingHand } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 
-function App() {
+function Home() {
 	return (
 		<div className="Home">
 			<div className="bg-gray-dark h-screen">
@@ -27,4 +27,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Home;
