@@ -8,6 +8,7 @@
 		"kamikillerto.vscode-colorize",
 		"maptz.regionfolder",
 		"ms-vscode.vscode-typescript-next",
-		"stackbreak.comment-divider"
+		"stackbreak.comment-divider",
+		"sgryjp.vscode-stable-sort"
 	]
 }
