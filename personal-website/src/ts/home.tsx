@@ -4,19 +4,43 @@ import { FaGithub } from "react-icons/fa";
 function Home() {
 	return (
 		<div className="Home">
-			<div className="bg-gray-dark h-screen">
-				<div className="flex justify-center" id="header">
-					<div className="flex justify-between items-center h-18 m-4 w-11/12">
-						<div className="flex items-center">
-							<h1 className="font-black font-display text-5xl text-white mr-8">D</h1>
-							<h1 className="font-display text-3xl text-white -translate-y-0.5">itsdmd</h1>
+			<div className="bg-gray-dark">
+				{/* <div className="bg-gradient-to-b fixed flex from-gray justify-center w-full z-50" id="header-wrapper"> */}
+				<div className="fixed flex justify-center w-full z-50" id="header-wrapper">
+					<div
+						className="backdrop-blur-sm bg-gray bg-opacity-25 flex h-18 items-center justify-between m-4 mt-0 p-10 lg:pl-20 lg:pr-20 md:pl-15 md:pr-15 rounded-b-3xl w-11/12"
+						id="header"
+					>
+						<div className="flex items-center" id="logo">
+							<h1 className="font-black font-display mr-8 text-5xl text-white" id="logo-icon">
+								D
+							</h1>
+							<h1 className="-translate-y-0.5 font-display text-3xl text-white" id="logo-text">
+								itsdmd
+							</h1>
+						</div>
+						<div id="navbar">
+							<ul className="flex-col md:flex md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:hidden space-y-4 text-white">
+								<li className="font-bold font-display text-2xl">
+									<a href="#about">About</a>
+								</li>
+								<li className="font-bold font-display text-2xl">
+									<a href="#projects">Projects</a>
+								</li>
+								<li className="font-bold font-display text-2xl">
+									<a href="#contact">Contact</a>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
-				<div className="flex justify-center" id="greeting-card">
-					<div className="bg-gray drop-shadow-2xl flex h-96 items-center justify-center max-w-5xl mt-20 rounded-3xl w-11/12">
+				<div className="flex justify-center" id="greeting-card-wrapper">
+					<div
+						className="bg-gray drop-shadow-2xl flex md:h-96 sm:h-80 items-center justify-center max-w-5xl mt-40 rounded-3xl w-11/12"
+						id="greeting-card"
+					>
 						<div className="translate-y-4">
-							<h1 className="font-bold font-monospace shadow-gray-light text-7xl text-center text-shadow-lg text-white">
+							<h1 className="font-bold font-monospace shadow-gray-light md:text-7xl sm:text-6xl text-center text-shadow-lg text-white">
 								Xin chào! <MdWavingHand className="drop-shadow-[0_8px_16px_rgba(98,114,164,1)] float-right inline-block translate-x-8" />
 							</h1>
 							<hr className="border-none m-5" />
@@ -30,6 +54,10 @@ function Home() {
 						</div>
 					</div>
 				</div>
+				<div className="h-screen"></div>
+				<div className="h-screen"></div>
+				<div className="h-screen"></div>
+				<div className="h-screen"></div>
 			</div>
 		</div>
 	);
