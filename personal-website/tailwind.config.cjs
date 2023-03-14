@@ -1,7 +1,7 @@
 /** @type {import("tailwindcss").Config} */
 const plugin = require("tailwindcss/plugin");
 module.exports = {
-	content: ["./src/index.html", "./src/pages/*.html", "./src/ts/*.{ts,tsx}"],
+	content: ["./src/index.html", "./src/pages/*.html", "./src/ts/*.{ts,tsx}", "./src/ts/**/*.{ts,tsx}"],
 	theme: {
 		extend: {
 			borderRadius: {
