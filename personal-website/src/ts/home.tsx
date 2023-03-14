@@ -8,7 +8,7 @@ function Home() {
 				{/* <div className="bg-gradient-to-b fixed flex from-gray justify-center w-full z-50" id="header-wrapper"> */}
 				<div className="fixed flex justify-center w-full z-50" id="header-wrapper">
 					<div
-						className="backdrop-blur-sm bg-gray bg-opacity-25 flex h-18 items-center justify-between m-4 mt-0 p-10 lg:pl-20 lg:pr-20 md:pl-15 md:pr-15 rounded-b-3xl w-11/12"
+						className="backdrop-blur-sm bg-gray bg-opacity-50 flex h-18 items-center justify-between lg:pl-20 lg:pr-20 md:pl-15 md:pr-15 md:rounded-b-3xl md:w-11/12 mt-0 p-10 rounded-b-xl w-screen drop-shadow-2xl"
 						id="header"
 					>
 						<div className="flex items-center" id="logo">
@@ -20,7 +20,7 @@ function Home() {
 							</h1>
 						</div>
 						<div id="navbar">
-							<ul className="flex-col md:flex md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:hidden space-y-4 text-white">
+							<ul className="flex-col hidden md:flex md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 space-y-4 text-white">
 								<li className="font-bold font-display text-2xl">
 									<a href="#about">About</a>
 								</li>
