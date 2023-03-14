@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 import animatedPage from "../components/animated-page";
 import pageTitle from "../components/page-title";
 
