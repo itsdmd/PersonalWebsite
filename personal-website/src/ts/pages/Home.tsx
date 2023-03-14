@@ -6,7 +6,7 @@ function Home() {
 	return (
 		<div className="Home">
 			{greetingCard()}
-			<div className="h-screen"></div>
+
 			<div className="h-screen"></div>
 			<div className="h-screen"></div>
 			<div className="h-screen"></div>
