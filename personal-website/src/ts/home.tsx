@@ -36,11 +36,11 @@ function Home() {
 				</div>
 				<div className="flex justify-center" id="greeting-card-wrapper">
 					<div
-						className="bg-gray drop-shadow-2xl flex md:h-96 sm:h-80 items-center justify-center max-w-5xl mt-40 rounded-3xl w-11/12"
+						className="bg-gray drop-shadow-2xl flex h-60 items-center justify-center max-w-5xl md:h-96 mt-40 rounded-3xl sm:h-80 w-11/12"
 						id="greeting-card"
 					>
 						<div className="translate-y-4">
-							<h1 className="font-bold font-monospace shadow-gray-light md:text-7xl sm:text-6xl text-center text-shadow-lg text-white">
+							<h1 className="font-bold font-monospace md:text-7xl shadow-gray-light sm:text-5xl text-4xl text-center text-shadow-lg text-white">
 								Xin chào! <MdWavingHand className="drop-shadow-[0_8px_16px_rgba(98,114,164,1)] float-right inline-block translate-x-8" />
 							</h1>
 							<hr className="border-none m-5" />
