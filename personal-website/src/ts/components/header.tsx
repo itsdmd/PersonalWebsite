@@ -1,4 +1,4 @@
-import navbar from "./navbar";
+import { Link } from "react-router-dom";
 
 function header() {
 	console.log("[fn] header called");
@@ -10,7 +10,7 @@ function header() {
 				id="header"
 			>
 				{headerLogo()}
-				{navbar()}
+				{headerNavbar()}
 			</div>
 		</div>
 	);
@@ -31,22 +31,27 @@ function headerLogo() {
 	);
 }
 
-// Input is a dictionary of key-value pairs, where the key is the text and the value is the link
-// function headerNavbar(links: { [text: string]: string }) {
-// 	console.log("[fn] headerNavbar called");
-// 	console.log(links);
-
-// 	return (
-// 		<div id="navbar">
-// 			<ul className="flex-col hidden md:flex md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 space-y-4 text-white">
-// 				{Object.entries(links).map(([text, link]) => (
-// 					<li className="font-bold font-display text-2xl" key={link}>
-// 						<Link to={link}>{text}</Link>
-// 					</li>
-// 				))}
-// 			</ul>
-// 		</div>
-// 	);
-// }
+function headerNavbar() {
+	return (
+		<div>
+			<nav id="navbar">
+				<ul className="flex-col hidden md:flex md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 space-y-4 text-white">
+					<li className="font-bold font-display text-2xl">
+						<Link to="/">Home</Link>
+					</li>
+					<li className="font-bold font-display text-2xl">
+						<Link to="/about">About</Link>
+					</li>
+					<li className="font-bold font-display text-2xl">
+						<Link to="/projects">Projects</Link>
+					</li>
+					<li className="font-bold font-display text-2xl">
+						<Link to="/contact">Contact</Link>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	);
+}
 
 export default header;
