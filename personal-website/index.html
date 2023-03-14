@@ -12,23 +12,163 @@
 		<link rel="stylesheet" href="/src/styles/tailwind.css" />
 
 		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<!-- Be Vietnam Pro [sans-serif] -->
-		<link
-			href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,900&display=swap"
-			rel="stylesheet"
-		/>
-		<!-- Merriweather [serif]-->
-		<link
-			href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-			rel="stylesheet"
-		/>
-		<!-- Source Code Pro [monospace]-->
-		<link
-			href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,400;0,700;0,900;1,200;1,400;1,700;1,900&display=swap"
-			rel="stylesheet"
-		/>
+		<!-- Be Vietnam Pro -->
+		<style>
+			@font-face {
+				font-family: "Be Vietnam Pro";
+				font-weight: 200;
+				src: url("./src/assets/webfontkit/BVP-Extralight.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Be Vietnam Pro";
+				font-style: italic;
+				font-weight: 200;
+				src: url("./src/assets/webfontkit/BVP-ExtralightItalic.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Be Vietnam Pro";
+				font-weight: 500;
+				src: url("./src/assets/webfontkit/BVP-Medium.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Be Vietnam Pro";
+				font-style: italic;
+				font-weight: 500;
+				src: url("./src/assets/webfontkit/BVP-MediumItalic.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Be Vietnam Pro";
+				font-weight: 700;
+				src: url("./src/assets/webfontkit/BVP-Bold.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Be Vietnam Pro";
+				font-style: italic;
+				font-weight: 700;
+				src: url("./src/assets/webfontkit/BVP-BoldItalic.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Be Vietnam Pro";
+				font-weight: 900;
+				src: url("./src/assets/webfontkit/BVP-Black.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Be Vietnam Pro";
+				font-style: italic;
+				font-weight: 900;
+				src: url("./src/assets/webfontkit/BVP-BlackItalic.woff2") format("woff2"), sans-serif;
+			}
+		</style>
+		<!-- SauceCodePro -->
+		<style>
+			@font-face {
+				font-family: "SauceCodePro";
+				font-weight: 500;
+				src: url("./src/assets/webfontkit/SCPNF-Medium.woff2") format("woff2"), monospace;
+			}
+
+			@font-face {
+				font-family: "SauceCodePro";
+				font-style: italic;
+				font-weight: 500;
+				src: url("./src/assets/webfontkit/SCPNF-MediumItalic.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "SauceCodePro";
+				font-weight: 600;
+				src: url("./src/assets/webfontkit/SCPNF-Semibold.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "SauceCodePro";
+				font-style: italic;
+				font-weight: 600;
+				src: url("./src/assets/webfontkit/SCPNF-SemiboldItalic.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "SauceCodePro";
+				font-weight: 900;
+				src: url("./src/assets/webfontkit/SCPNF-Black.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "SauceCodePro";
+				font-style: italic;
+				font-weight: 900;
+				src: url("./src/assets/webfontkit/SCPNF-BlackItalic.woff2") format("woff2"), sans-serif;
+			}
+		</style>
+		<!-- Roboto Slab -->
+		<style>
+			@font-face {
+				font-family: "Roboto Slab";
+				font-weight: 400;
+				src: url("./src/assets/webfontkit/RobotoSlab.woff2") format("woff2"), serif;
+			}
+		</style>
+		<!-- Montserrat -->
+		<style>
+			@font-face {
+				font-family: "Montserrat";
+				font-weight: 200;
+				src: url("./src/assets/webfontkit/Montserrat-ExtraLight.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Montserrat";
+				font-style: italic;
+				font-weight: 200;
+				src: url("./src/assets/webfontkit/Montserrat-ExtraLightItalic.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Montserrat";
+				font-weight: 500;
+				src: url("./src/assets/webfontkit/Montserrat-Medium.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Montserrat";
+				font-style: italic;
+				font-weight: 500;
+				src: url("./src/assets/webfontkit/Montserrat-MediumItalic.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Montserrat";
+				font-weight: 700;
+				src: url("./src/assets/webfontkit/Montserrat-Bold.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Montserrat";
+				font-style: italic;
+				font-weight: 700;
+				src: url("./src/assets/webfontkit/Montserrat-BoldItalic.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Montserrat";
+				font-weight: 900;
+				src: url("./src/assets/webfontkit/Montserrat-Black.woff2") format("woff2"), sans-serif;
+			}
+
+			@font-face {
+				font-family: "Montserrat";
+				font-style: italic;
+				font-weight: 900;
+				src: url("./src/assets/webfontkit/Montserrat-BlackItalic.woff2") format("woff2"), sans-serif;
+			}
+		</style>
 
 		<!-- Title -->
 		<title>itsdmd</title>
