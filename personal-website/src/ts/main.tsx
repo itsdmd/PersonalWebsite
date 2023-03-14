@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-import animatePageTransition from "./components/animate-page-transition";
+import animatePageTransition from "./components/page-router";
 
 // components
 import header from "./components/header";
