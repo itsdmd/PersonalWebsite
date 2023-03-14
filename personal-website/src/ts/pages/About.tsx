@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import page from "../components/page";
+import animatedPage from "../components/animated-page";
 import pageTitle from "../components/page-title";
 
 function About() {
@@ -8,7 +8,7 @@ function About() {
 
 	return (
 		<div>
-			{page("About", { element: [pageTitle("About")] })}
+			{animatedPage("About", { element: [pageTitle("About")] })}
 
 			<div className="h-screen"></div>
 			<div className="h-screen"></div>

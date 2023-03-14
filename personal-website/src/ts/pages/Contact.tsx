@@ -1,4 +1,4 @@
-import page from "../components/page";
+import animatedPage from "../components/animated-page";
 import pageTitle from "../components/page-title";
 
 function Contact() {
@@ -6,7 +6,7 @@ function Contact() {
 
 	return (
 		<div>
-			{page("Contact", { element: [pageTitle("Contact")] })}
+			{animatedPage("Contact", { element: [pageTitle("Contact")] })}
 
 			<div className="h-screen"></div>
 			<div className="h-screen"></div>

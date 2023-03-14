@@ -1,12 +1,12 @@
 import greetingCard from "../components/greeting-card";
-import page from "../components/page";
+import animatedPage from "../components/animated-page";
 
 function Home() {
 	console.log("[fn] Home called");
 
 	return (
 		<div>
-			{page("Home", { element: [greetingCard()] })}
+			{animatedPage("Home", { element: [greetingCard()] })}
 
 			<div className="h-screen"></div>
 			<div className="h-screen"></div>
