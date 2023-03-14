@@ -13,13 +13,13 @@ function greetingCard() {
 						Xin chào! <MdWavingHand className="drop-shadow-[0_8px_16px_rgba(98,114,164,1)] float-right inline-block translate-x-8" />
 					</h1>
 					<hr className="border-none m-5" />
-					<h2 className="italic text-center text-white text-xl">
+					{/* <h2 className="italic text-center text-white text-xl">
 						<a href="https://github.com/itsdmd">
 							<button type="button" className="bg-gray-dark font-bold font-monospace not-italic p-3 rounded-md">
 								<FaGithub className="inline-block -translate-y-0.5" /> itsdmd
 							</button>
 						</a>
-					</h2>
+					</h2> */}
 				</div>
 			</div>
 		</div>

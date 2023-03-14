@@ -1,12 +1,10 @@
-import header from "./components/header";
-import greetingCard from "./components/greeting-card";
+function About() {
+	console.log("[fn] About called");
 
-function Home() {
 	return (
-		<div className="Home">
+		<div className="About">
 			<div className="bg-gray-dark">
-				{header()}
-				{greetingCard()}
+				<h1 className="text-7xl text-center">About</h1>
 
 				<div className="h-screen"></div>
 				<div className="h-screen"></div>
@@ -17,4 +15,4 @@ function Home() {
 	);
 }
 
-export default Home;
+export default About;
