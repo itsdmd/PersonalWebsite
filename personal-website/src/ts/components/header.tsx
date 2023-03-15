@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function header() {
 	console.log("[fn] header called");
@@ -33,20 +34,42 @@ function headerLogo() {
 	);
 }
 
+function navElement(text: string, link: string) {
+	const textMotion = {
+		hover: {
+			translateY: -5,
+		},
+	};
+
+	const hrMotion = {
+		rest: {
+			width: 0,
+		},
+		hover: {
+			width: "100%",
+		},
+	};
+
+	return (
+		<motion.li className="font-bold font-display text-2xl" initial="rest" whileHover="hover">
+			<motion.div variants={textMotion}>
+				<Link to={link}>{text}</Link>
+			</motion.div>
+			<div className="flex justify-center">
+				<motion.hr className="mt-1" variants={hrMotion} />
+			</div>
+		</motion.li>
+	);
+}
+
 function headerNavbar() {
 	return (
 		<div>
 			<nav id="navbar">
-				<ul className="flex-col hidden md:flex md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 space-y-4 text-white">
-					<li className="font-bold font-display text-2xl">
-						<Link to="/blog">Blog</Link>
-					</li>
-					<li className="font-bold font-display text-2xl">
-						<Link to="/projects">Projects</Link>
-					</li>
-					<li className="font-bold font-display text-2xl">
-						<Link to="/contact">Contact</Link>
-					</li>
+				<ul className="flex-col hidden md:flex md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 space-y-4 text-white mt-1">
+					{navElement("Blog", "/blog")}
+					{navElement("Projects", "/projects")}
+					{navElement("Contact", "/contact")}
 				</ul>
 			</nav>
 		</div>
