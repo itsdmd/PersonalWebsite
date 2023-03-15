@@ -1,12 +1,12 @@
 import animatedPage from "../components/animated-page";
 import pageTitle from "../components/page-title";
 
-function About() {
-	console.log("[fn] About called");
+function Blog() {
+	console.log("[fn] Blog called");
 
 	return (
 		<div>
-			{animatedPage("About", [pageTitle("About")])}
+			{animatedPage("Blog", [pageTitle("Blog")])}
 
 			<div className="h-screen"></div>
 			<div className="h-screen"></div>
@@ -15,4 +15,4 @@ function About() {
 	);
 }
 
-export default About;
+export default Blog;

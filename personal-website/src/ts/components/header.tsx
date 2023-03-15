@@ -39,7 +39,7 @@ function headerNavbar() {
 			<nav id="navbar">
 				<ul className="flex-col hidden md:flex md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 space-y-4 text-white">
 					<li className="font-bold font-display text-2xl">
-						<Link to="/about">About</Link>
+						<Link to="/blog">Blog</Link>
 					</li>
 					<li className="font-bold font-display text-2xl">
 						<Link to="/projects">Projects</Link>
