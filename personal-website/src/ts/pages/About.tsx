@@ -6,7 +6,7 @@ function About() {
 
 	return (
 		<div>
-			{animatedPage("About", { element: [pageTitle("About")] })}
+			{animatedPage("About", [pageTitle("About")])}
 
 			<div className="h-screen"></div>
 			<div className="h-screen"></div>
