@@ -23,8 +23,8 @@
 				"port": 8118,
 				"askForPassword": true,
 				"driver": "PostgreSQL",
-				"name": "postgresql-local",
-				"database": "itsdmd",
+				"name": "psql-local-pw",
+				"database": "personalwebsite",
 				"username": "itsdmd",
 				"connectionTimeout": 10
 			}
