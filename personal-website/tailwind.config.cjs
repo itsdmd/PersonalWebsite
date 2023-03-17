@@ -12,6 +12,7 @@ module.exports = {
 				full: "9999px",
 			},
 			colors: {
+				black: "#21222c",
 				blue: "#8be9fd",
 				purple: "#bd93f9",
 				pink: "#ff79c6",
