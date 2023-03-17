@@ -4,5 +4,31 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"sqltools.connections": [
+			{
+				"previewLimit": 50,
+				"server": "172.21.0.2",
+				"port": 5432,
+				"askForPassword": true,
+				"driver": "PostgreSQL",
+				"name": "postgresql-docker",
+				"database": "itsdmd",
+				"username": "itsdmd",
+				"connectionTimeout": 10
+			},
+			{
+				"previewLimit": 50,
+				"server": "192.168.1.10",
+				"port": 8118,
+				"askForPassword": true,
+				"driver": "PostgreSQL",
+				"name": "postgresql-local",
+				"database": "itsdmd",
+				"username": "itsdmd",
+				"connectionTimeout": 10
+			}
+		],
+		"prisma.fileWatcher": true
+	}
 }
