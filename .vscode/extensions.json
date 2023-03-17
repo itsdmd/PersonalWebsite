@@ -8,6 +8,7 @@
 		"maptz.regionfolder",
 		"ms-vscode.vscode-typescript-next",
 		"stackbreak.comment-divider",
-		"sgryjp.vscode-stable-sort"
+		"sgryjp.vscode-stable-sort",
+		"rxliuli.joplin-vscode-plugin"
 	]
 }
