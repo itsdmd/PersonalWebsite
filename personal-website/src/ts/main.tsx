@@ -9,7 +9,7 @@ import header from "./components/header";
 
 function App() {
 	return (
-		<div className="bg-gray-dark">
+		<div className="bg-black">
 			{header()}
 
 			{animatePageTransition()}

@@ -6,7 +6,7 @@ function header() {
 
 	return (
 		<div className="_header-wrapper fixed flex justify-center w-full z-50">
-			<div className="_header backdrop-blur-lg bg-gray bg-opacity-50 drop-shadow-2xl flex h-18 items-center justify-between lg:pl-20 lg:pr-20 lg:w-screen md:pl-15 md:pr-15 md:rounded-b-3xl mt-0 p-10 rounded-b-xl w-screen xl:w-11/12">
+			<div className="_header backdrop-blur-lg bg-gray-dark bg-opacity-50 drop-shadow-2xl flex h-18 items-center justify-between lg:pl-20 lg:pr-20 lg:w-screen md:p-10 md:pl-15 md:pr-15 md:rounded-b-3xl mt-0 p-5 rounded-b-xl w-screen xl:w-11/12">
 				{headerLogo()}
 				{headerNavbar()}
 			</div>
@@ -36,11 +36,16 @@ function headerLogo() {
 	};
 
 	return (
-		<NavLink to="/">
-			<motion.div className="_logo mt-2 p-6 rounded-3xl shadow-gray-dark" initial="rest" whileHover="hover" variants={logoContainerMotion}>
+		<NavLink to="/" className="-translate-y-2">
+			<motion.div
+				className="_logo bg-gray-dark mt-2 md:p-6 p-4 rounded-3xl shadow-gray-dark"
+				initial="rest"
+				whileHover="hover"
+				variants={logoContainerMotion}
+			>
 				<motion.div className="flex items-center" variants={logoMotion}>
-					<h1 className="_logo-icon -translate-y-0.5 font-black font-display mr-8 text-5xl text-white">D</h1>
-					<h1 className="_logo-text -translate-y-0.5 font-display text-3xl text-white">itsdmd</h1>
+					<h1 className="_logo-icon -translate-y-0.5 font-black font-display md:text-5xl mr-8 text-3xl text-white">D</h1>
+					<h1 className="_logo-text -translate-y-0.5 font-display md:text-3xl text-white text-xl">itsdmd</h1>
 				</motion.div>
 			</motion.div>
 		</NavLink>
@@ -65,19 +70,19 @@ function navElement(text: string, link: string) {
 		},
 	};
 
-	const li_classes = `_navbar-${text.toLowerCase()} font-display text-2xl`;
-	const nl_activeClasses = `active drop-shadow-[0_8px_16px_rgba(98,114,164,1)] font-bold text-3xl`;
+	const li_classes = `_navbar-${text.toLowerCase()} font-display md:text-2xl sm:w-40 text-lg`;
+	const nl_activeClasses = `active drop-shadow-[0_8px_16px_rgba(98,114,164,1)] font-bold md:text-3xl text-xl`;
 
 	return (
 		<motion.li className={li_classes} initial="rest" whileHover="hover">
 			<motion.div variants={textMotion}>
 				<NavLink to={link} className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? nl_activeClasses : "")}>
 					{text}
+					<div className="flex justify-center">
+						<motion.hr className="mt-3 opacity-50" variants={hrMotion} />
+					</div>
 				</NavLink>
 			</motion.div>
-			<div className="flex justify-center">
-				<motion.hr className="mt-1 opacity-50" variants={hrMotion} />
-			</div>
 		</motion.li>
 	);
 }
@@ -88,7 +93,7 @@ function headerNavbar() {
 	return (
 		<div>
 			<nav>
-				<ul className="_navbar flex flex-col md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 space-y-4 text-right text-white">
+				<ul className="_navbar flex flex-col md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 space-y-2 text-right sm:text-center text-white">
 					{navElement("Blog", "/blog")}
 					{navElement("Projects", "/projects")}
 					{navElement("Contact", "/contact")}
