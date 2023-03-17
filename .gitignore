@@ -127,3 +127,4 @@ dist
 .pnp.*
 personal-website/vite.config.ts
 playground.mongodb
+personal-website/prisma/migrations/
