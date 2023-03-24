@@ -1,12 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
+import { MdDarkMode, MdWbSunny } from "react-icons/md";
+
 function header() {
 	console.log("[fn] header called");
 
 	return (
 		<div className="_header-wrapper fixed flex justify-center w-full z-50">
-			<div className="_header backdrop-blur-lg dark:bg-d-bg-dark bg-l-bg-dark bg-opacity-50 drop-shadow-2xl flex h-18 items-center justify-between lg:pl-20 lg:pr-20 lg:w-screen md:p-10 md:pl-15 md:pr-15 md:rounded-b-3xl mt-0 p-5 rounded-b-xl w-screen xl:w-11/12">
+			<div className="_header backdrop-blur-lg dark:bg-d-bg-dark bg-l-bg-dark bg-opacity-50 dark:bg-opacity-50 drop-shadow-2xl dark:drop-shadow-2xl flex h-18 items-center justify-between lg:pl-20 lg:pr-20 lg:w-screen md:p-10 md:pl-15 md:pr-15 md:rounded-b-3xl mt-0 p-5 rounded-b-xl w-screen xl:w-11/12">
 				{headerLogo()}
 				{headerNavbar()}
 			</div>
@@ -89,24 +91,30 @@ function navElement(text: string, link: string) {
 
 // language + theme switcher
 function settingCombo() {
-	const langBtnMotion = {
-		rest: {
-			boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)",
-		},
-		hover: {
-			boxShadow: "inset 0px 2px 24px rgba(0,0,0,0.4)",
-		},
-	};
-
 	return (
-		<div>
+		<div className="flex-col flex items-center justify-center">
 			{/* button for language */}
-			<button
-				className="bg-l-bg-light dark:bg-d-bg-light dark:hover:bg-d-bg font-bold hover:bg-l-bg-dark px-4 py-2 rounded-xl text-l-black dark:text-d-white"
+			<motion.button
+				id="langBtn"
+				className="bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold h-10 my-2 px-4 py-2 rounded-xl text-center text-l-black w-14"
 				type="button"
+				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
+				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
 			>
 				EN
-			</button>
+			</motion.button>
+
+			{/* button for theme */}
+			<motion.button
+				id="themeBtn"
+				className="bg-l-bg-dark dark:bg-d-bg font-bold h-10 my-2 px-4 py-2 rounded-xl w-14"
+				type="button"
+				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
+				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
+			>
+				<MdWbSunny id="lightThemeIcon" className="m-auto relative" />
+				<MdDarkMode id="darkThemeIcon" className="m-auto relative hidden" />
+			</motion.button>
 		</div>
 	);
 }
