@@ -62,7 +62,6 @@ module.exports = {
 		},
 	},
 	plugins: [
-		require("flowbite/plugin"),
 		plugin(function ({ matchUtilities, theme }) {
 			matchUtilities(
 				{
