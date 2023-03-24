@@ -6,7 +6,7 @@ function header() {
 
 	return (
 		<div className="_header-wrapper fixed flex justify-center w-full z-50">
-			<div className="_header backdrop-blur-lg bg-gray-dark bg-opacity-50 drop-shadow-2xl flex h-18 items-center justify-between lg:pl-20 lg:pr-20 lg:w-screen md:p-10 md:pl-15 md:pr-15 md:rounded-b-3xl mt-0 p-5 rounded-b-xl w-screen xl:w-11/12">
+			<div className="_header backdrop-blur-lg dark:bg-d-bg-dark bg-l-bg-dark bg-opacity-50 drop-shadow-2xl flex h-18 items-center justify-between lg:pl-20 lg:pr-20 lg:w-screen md:p-10 md:pl-15 md:pr-15 md:rounded-b-3xl mt-0 p-5 rounded-b-xl w-screen xl:w-11/12">
 				{headerLogo()}
 				{headerNavbar()}
 			</div>
@@ -38,14 +38,14 @@ function headerLogo() {
 	return (
 		<NavLink to="/" className="-translate-y-2">
 			<motion.div
-				className="_logo bg-gray-dark mt-2 md:p-6 p-4 rounded-3xl shadow-gray-dark"
+				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 mt-2 p-4 rounded-3xl shadow-l-bg-dark"
 				initial="rest"
 				whileHover="hover"
 				variants={logoContainerMotion}
 			>
 				<motion.div className="flex items-center" variants={logoMotion}>
-					<h1 className="_logo-icon -translate-y-0.5 font-black font-display md:text-5xl mr-8 text-3xl text-white">D</h1>
-					<h1 className="_logo-text -translate-y-0.5 font-display md:text-3xl text-white text-xl">itsdmd</h1>
+					<h1 className="_logo-icon -translate-y-0.5 dark:text-white font-black font-display md:text-5xl mr-8 text-3xl text-l-black">D</h1>
+					<h1 className="_logo-text -translate-y-0.5 dark:text-white font-display md:text-3xl text-l-black text-xl">itsdmd</h1>
 				</motion.div>
 			</motion.div>
 		</NavLink>
@@ -71,7 +71,7 @@ function navElement(text: string, link: string) {
 	};
 
 	const li_classes = `_navbar-${text.toLowerCase()} font-display md:text-2xl sm:w-40 text-lg`;
-	const nl_activeClasses = `active drop-shadow-[0_8px_16px_rgba(98,114,164,1)] font-bold md:text-3xl text-xl`;
+	const nl_activeClasses = `active bg:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.1)] font-bold md:text-3xl text-xl`;
 
 	return (
 		<motion.li className={li_classes} initial="rest" whileHover="hover">
@@ -79,11 +79,35 @@ function navElement(text: string, link: string) {
 				<NavLink to={link} className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? nl_activeClasses : "")}>
 					{text}
 					<div className="flex justify-center">
-						<motion.hr className="mt-3 opacity-50" variants={hrMotion} />
+						<motion.hr className="border-l-black dark:border-d-white mt-3 opacity-50" variants={hrMotion} />
 					</div>
 				</NavLink>
 			</motion.div>
 		</motion.li>
+	);
+}
+
+// language + theme switcher
+function settingCombo() {
+	const langBtnMotion = {
+		rest: {
+			boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)",
+		},
+		hover: {
+			boxShadow: "inset 0px 2px 24px rgba(0,0,0,0.4)",
+		},
+	};
+
+	return (
+		<div>
+			{/* button for language */}
+			<button
+				className="bg-l-bg-light dark:bg-d-bg-light dark:hover:bg-d-bg font-bold hover:bg-l-bg-dark px-4 py-2 rounded-xl text-l-black dark:text-d-white"
+				type="button"
+			>
+				EN
+			</button>
+		</div>
 	);
 }
 
@@ -93,10 +117,10 @@ function headerNavbar() {
 	return (
 		<div>
 			<nav>
-				<ul className="_navbar flex flex-col md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 space-y-2 text-right sm:text-center text-white">
-					{navElement("Blog", "/blog")}
+				<ul className="_navbar dark:text-white flex flex-col md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:text-center space-y-2 text-l-black text-right">
 					{navElement("Projects", "/projects")}
 					{navElement("Contact", "/contact")}
+					{settingCombo()}
 				</ul>
 			</nav>
 		</div>
