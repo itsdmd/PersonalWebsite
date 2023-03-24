@@ -6,7 +6,7 @@ function Contact() {
 
 	return (
 		<div>
-			{animatedPage("Contact", [pageTitle("Contact")])}
+			{animatedPage("Contact", [pageTitle("Contact", "Liên hệ")])}
 
 			<div className="h-screen"></div>
 			<div className="h-screen"></div>

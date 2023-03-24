@@ -1,20 +1,48 @@
-const langBtn = document.querySelector("#langBtn");
-const themeBtn = document.querySelector("#themeBtn");
-
-let currentLang = "";
-let currentTheme = "";
+export let currentLang = "";
+export let currentTheme = "";
 
 waitForElm("#langBtn").then((elm) => {
+	loadData();
+
+	document.querySelector("#langBtn").textContent = currentLang.toUpperCase();
+	document.querySelector("html").setAttribute("lang", currentLang);
+	switch (currentLang) {
+		case "vn": {
+			document.querySelectorAll("[lang='en']").forEach((elm) => {
+				elm.classList.add("hidden");
+			});
+			break;
+		}
+
+		default: {
+			document.querySelectorAll("[lang='vn']").forEach((elm) => {
+				elm.classList.add("hidden");
+			});
+			break;
+		}
+	}
+
 	elm.addEventListener("click", () => {
-		console.log("[fn] toggleLang called");
-		currentLang = currentLang === "EN" ? "VN" : "EN";
-		elm.textContent = currentLang;
+		currentLang = currentLang === "en" ? "vn" : "en";
+		console.log("language changed to " + currentLang);
+		document.querySelector("html").setAttribute("lang", currentLang);
+
+		elm.textContent = currentLang.toUpperCase();
+
+		document.querySelectorAll("[lang]").forEach((elm) => {
+			if (elm.tagName !== "HTML") {
+				elm.classList.toggle("hidden");
+			}
+		});
 
 		saveData();
 	});
 });
 
 waitForElm("#themeBtn").then((elm) => {
+	loadData();
+	updateTheme();
+
 	elm.addEventListener("click", () => {
 		console.log("toggle language");
 		currentTheme = currentTheme === "light" ? "dark" : "light";
@@ -24,29 +52,24 @@ waitForElm("#themeBtn").then((elm) => {
 				document.querySelector("#darkThemeIcon").classList.add("hidden");
 				break;
 			}
-			
+
 			case "dark": {
 				document.querySelector("#lightThemeIcon").classList.add("hidden");
 				document.querySelector("#darkThemeIcon").classList.remove("hidden");
 				break;
 			}
-			
+
 			default: {
 				console.error("Invalid theme");
 				break;
-			};
+			}
 		}
-		
 
 		saveData();
-		
+
 		updateTheme();
 	});
 });
-
-loadData();
-updateLang();
-updateTheme();
 
 // https://stackoverflow.com/a/61511955
 function waitForElm(selector) {
@@ -75,12 +98,23 @@ function saveData() {
 }
 
 function loadData() {
-	currentLang = localStorage.getItem("lang") || "EN";
+	currentLang = localStorage.getItem("lang") || "en";
 	currentTheme = localStorage.getItem("theme") || "light";
 }
 
 function updateLang() {
-	document.querySelector("#langBtn").textContent = currentLang;
+	document.querySelector("#langBtn").textContent = currentLang.toUpperCase();
+	document.querySelectorAll("[lang]='" + currentLang + "'").hide();
+	document.querySelector("html").setAttribute("lang", currentLang);
+	document.querySelectorAll("[lang='" + currentLang + "']").toggle();
+
+	// document.querySelectorAll("[lang]").forEach((elm) => {
+	// 	if (elm.tagName !== "HTML") {
+	// 		elm.classList.add("hidden")
+	// 	}
+	// });
+
+	// document.querySelector("[lang='" + currentLang + "']").classList.remove("hidden");
 }
 
 function updateTheme() {

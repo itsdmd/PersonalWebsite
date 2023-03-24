@@ -54,8 +54,8 @@ function headerLogo() {
 	);
 }
 
-function navElement(text: string, link: string) {
-	console.log('[fn] navElement called for "' + text + '":' + link);
+function navElement(textEN: string, textVN: string, link: string) {
+	console.log('[fn] navElement called for "' + textEN + '":' + link);
 
 	const textMotion = {
 		hover: {
@@ -72,14 +72,15 @@ function navElement(text: string, link: string) {
 		},
 	};
 
-	const li_classes = `_navbar-${text.toLowerCase()} font-display md:text-2xl sm:w-40 text-lg`;
+	const li_classes = `_navbar-${textEN.toLowerCase()} font-display md:text-2xl sm:w-40 text-lg`;
 	const nl_activeClasses = `active bg:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.1)] font-bold md:text-3xl text-xl`;
 
 	return (
 		<motion.li className={li_classes} initial="rest" whileHover="hover">
 			<motion.div variants={textMotion}>
 				<NavLink to={link} className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? nl_activeClasses : "")}>
-					{text}
+					<span lang="en">{textEN}</span>
+					<span lang="vn">{textVN}</span>
 					<div className="flex justify-center">
 						<motion.hr className="border-l-black dark:border-d-white mt-3 opacity-50" variants={hrMotion} />
 					</div>
@@ -96,7 +97,7 @@ function settingCombo() {
 			{/* button for language */}
 			<motion.button
 				id="langBtn"
-				className="bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold h-10 my-2 px-4 py-2 rounded-xl text-center text-l-black w-14"
+				className="bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold font-monospace h-10 my-2 px-4 py-2 rounded-xl text-center text-l-black w-14"
 				type="button"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
@@ -126,8 +127,8 @@ function headerNavbar() {
 		<div>
 			<nav>
 				<ul className="_navbar dark:text-white flex flex-col md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:text-center space-y-2 text-l-black text-right">
-					{navElement("Projects", "/projects")}
-					{navElement("Contact", "/contact")}
+					{navElement("Projects", "Dự án", "/projects")}
+					{navElement("Contact", "Liên hệ", "/contact")}
 					{settingCombo()}
 				</ul>
 			</nav>

@@ -6,7 +6,7 @@ function Projects() {
 
 	return (
 		<div>
-			{animatedPage("Projects", [pageTitle("Projects")])}
+			{animatedPage("Projects", [pageTitle("Projects", "Dự án")])}
 
 			<div className="h-screen"></div>
 			<div className="h-screen"></div>

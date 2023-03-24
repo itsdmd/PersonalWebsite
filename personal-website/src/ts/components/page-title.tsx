@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 
-function pageTitle(title: string) {
-	console.log("[fn] pageTitle called for " + title);
+function pageTitle(titleEN: string, titleVN: string) {
+	console.log("[fn] pageTitle called for " + titleEN);
+
+	const enClass = localStorage.getItem("lang") === "en" ? "" : "hidden";
+	const vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
 
 	return (
 		<div className="flex justify-center w-full" id="page-title">
@@ -12,7 +15,12 @@ function pageTitle(title: string) {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1 }}
 				>
-					{title}
+					<span lang="en" className={enClass}>
+						{titleEN}
+					</span>
+					<span lang="vn" className={vnClass}>
+						{titleVN}
+					</span>
 				</motion.h1>
 				<motion.hr
 					className="border-2 border-b-l-black dark:border-d-white mb-40 md:mt-20 mt-10 opacity-50 rounded-3xl w-5/6"
