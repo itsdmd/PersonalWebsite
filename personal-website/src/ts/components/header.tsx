@@ -75,12 +75,19 @@ function navElement(textEN: string, textVN: string, link: string) {
 	const li_classes = `_navbar-${textEN.toLowerCase()} font-display md:text-2xl sm:w-40 text-lg`;
 	const nl_activeClasses = `active bg:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.1)] font-bold md:text-3xl text-xl`;
 
+	const enClass = localStorage.getItem("lang") === "en" ? "" : "hidden";
+	const vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
+
 	return (
 		<motion.li className={li_classes} initial="rest" whileHover="hover">
 			<motion.div variants={textMotion}>
 				<NavLink to={link} className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? nl_activeClasses : "")}>
-					<span lang="en">{textEN}</span>
-					<span lang="vn">{textVN}</span>
+					<span lang="en" className={enClass}>
+						{textEN}
+					</span>
+					<span lang="vn" className={vnClass}>
+						{textVN}
+					</span>
 					<div className="flex justify-center">
 						<motion.hr className="border-l-black dark:border-d-white mt-3 opacity-50" variants={hrMotion} />
 					</div>
@@ -126,9 +133,11 @@ function headerNavbar() {
 	return (
 		<div>
 			<nav>
-				<ul className="_navbar dark:text-white flex flex-col md:flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:text-center space-y-2 text-l-black text-right">
-					{navElement("Projects", "Dự án", "/projects")}
-					{navElement("Contact", "Liên hệ", "/contact")}
+				<ul className="_navbar dark:text-white flex flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:text-center space-y-2">
+					<div className="dark:text-white flex md:flex-row flex-col md:items-center justify-around md:justify-between md:space-x-8 sm:text-center text-l-black text-right md:translate-y-0 translate-y-2">
+						{navElement("Projects", "Dự án", "/projects")}
+						{navElement("Contact", "Liên hệ", "/contact")}
+					</div>
 					{settingCombo()}
 				</ul>
 			</nav>

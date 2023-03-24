@@ -6,7 +6,7 @@ function greetingCard() {
 	return (
 		<div className="_greeting-card-wrapper flex justify-center relative">
 			<motion.div
-				className="_greeting-card-shadow absolute dark:bg-d-bg bg-gray-200 blur-xl drop-shadow-2xl flex h-40 items-center justify-center max-w-[66rem] md:h-96 md:mt-[22rem] mt-64 rounded-3xl sm:h-60 w-11/12"
+				className="_greeting-card-shadow absolute dark:bg-d-bg bg-gray-300 blur-xl drop-shadow-2xl flex h-40 items-center justify-center max-w-[66rem] md:h-96 md:mt-[22rem] mt-64 rounded-3xl sm:h-60 w-11/12"
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ delay: 0.5, duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}

@@ -107,14 +107,6 @@ function updateLang() {
 	document.querySelectorAll("[lang]='" + currentLang + "'").hide();
 	document.querySelector("html").setAttribute("lang", currentLang);
 	document.querySelectorAll("[lang='" + currentLang + "']").toggle();
-
-	// document.querySelectorAll("[lang]").forEach((elm) => {
-	// 	if (elm.tagName !== "HTML") {
-	// 		elm.classList.add("hidden")
-	// 	}
-	// });
-
-	// document.querySelector("[lang='" + currentLang + "']").classList.remove("hidden");
 }
 
 function updateTheme() {
