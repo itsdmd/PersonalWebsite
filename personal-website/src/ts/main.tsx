@@ -3,9 +3,17 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import animatePageTransition from "./components/page-router";
-
-// components
 import header from "./components/header";
+
+// set default language and theme if localStorage is empty
+if (localStorage.getItem("lang") === null) {
+	console.log("localStorage is empty, setting default language to English");
+	localStorage.setItem("lang", "en");
+}
+if (localStorage.getItem("theme") === null) {
+	console.log("localStorage is empty, setting default theme to light");
+	localStorage.setItem("theme", "light");
+}
 
 function App() {
 	return (

@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-
 import { MdDarkMode, MdWbSunny } from "react-icons/md";
 
 function header() {
@@ -8,7 +7,7 @@ function header() {
 
 	return (
 		<div className="_header-wrapper fixed flex justify-center w-full z-50">
-			<div className="_header backdrop-blur-lg dark:bg-d-bg-dark bg-l-bg-dark bg-opacity-50 dark:bg-opacity-50 drop-shadow-2xl dark:drop-shadow-2xl flex h-18 items-center justify-between lg:pl-20 lg:pr-20 lg:w-screen md:p-10 md:pl-15 md:pr-15 md:rounded-b-3xl mt-0 p-5 rounded-b-xl w-screen xl:w-11/12">
+			<div className="_header backdrop-blur-lg bg-l-bg-dark bg-opacity-50 dark:bg-d-bg-dark dark:bg-opacity-50 dark:drop-shadow-2xl drop-shadow-2xl flex h-18 items-center justify-between lg:pl-20 lg:pr-20 lg:w-screen md:p-10 md:pl-15 md:pr-15 md:rounded-b-3xl mt-0 p-5 rounded-b-xl w-screen xl:w-11/12">
 				{headerLogo()}
 				{headerNavbar()}
 			</div>
@@ -25,6 +24,9 @@ function headerLogo() {
 		},
 		hover: {
 			boxShadow: "inset 0px 2px 24px rgba(0,0,0,0.4)",
+		},
+		tap: {
+			boxShadow: "inset 0px 2px 48px rgba(0,0,0,0.4)",
 		},
 	};
 
@@ -43,6 +45,7 @@ function headerLogo() {
 				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 mt-2 p-4 rounded-3xl shadow-l-bg-dark"
 				initial="rest"
 				whileHover="hover"
+				whileTap="tap"
 				variants={logoContainerMotion}
 			>
 				<motion.div className="flex items-center" variants={logoMotion}>
@@ -75,8 +78,8 @@ function navElement(textEN: string, textVN: string, link: string) {
 	const li_classes = `_navbar-${textEN.toLowerCase()} font-display md:text-2xl sm:w-40 text-lg`;
 	const nl_activeClasses = `active bg:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.1)] font-bold md:text-3xl text-xl`;
 
-	const enClass = localStorage.getItem("lang") === "en" ? "" : "hidden";
-	const vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
+	let enClass = localStorage.getItem("lang") === "en" ? "" : "hidden";
+	let vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
 
 	return (
 		<motion.li className={li_classes} initial="rest" whileHover="hover">
@@ -108,6 +111,7 @@ function settingCombo() {
 				type="button"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
+				whileTap={{ boxShadow: "inset 0px 2px 12px rgba(0,0,0,0.4)" }}
 			>
 				EN
 			</motion.button>
@@ -119,6 +123,7 @@ function settingCombo() {
 				type="button"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
+				whileTap={{ boxShadow: "inset 0px 2px 12px rgba(0,0,0,0.4)" }}
 			>
 				<MdWbSunny id="lightThemeIcon" className="m-auto relative" />
 				<MdDarkMode id="darkThemeIcon" className="m-auto relative hidden" />
@@ -134,7 +139,7 @@ function headerNavbar() {
 		<div>
 			<nav>
 				<ul className="_navbar dark:text-white flex flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:text-center space-y-2">
-					<div className="dark:text-white flex md:flex-row flex-col md:items-center justify-around md:justify-between md:space-x-8 sm:text-center text-l-black text-right md:translate-y-0 translate-y-2">
+					<div className="dark:text-white flex flex-col justify-around md:flex-row md:items-center md:justify-between md:space-x-8 md:translate-y-0 sm:text-center text-l-black text-right translate-y-2">
 						{navElement("Projects", "Dự án", "/projects")}
 						{navElement("Contact", "Liên hệ", "/contact")}
 					</div>

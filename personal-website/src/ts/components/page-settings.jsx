@@ -3,7 +3,7 @@ export let currentTheme = "";
 
 waitForElm("#langBtn").then((elm) => {
 	loadData();
-
+	
 	document.querySelector("#langBtn").textContent = currentLang.toUpperCase();
 	document.querySelector("html").setAttribute("lang", currentLang);
 	switch (currentLang) {
@@ -41,8 +41,7 @@ waitForElm("#langBtn").then((elm) => {
 
 waitForElm("#themeBtn").then((elm) => {
 	loadData();
-	updateTheme();
-
+	
 	elm.addEventListener("click", () => {
 		console.log("toggle language");
 		currentTheme = currentTheme === "light" ? "dark" : "light";
@@ -67,7 +66,7 @@ waitForElm("#themeBtn").then((elm) => {
 
 		saveData();
 
-		updateTheme();
+		updateHtmlAndBody();
 	});
 });
 
@@ -102,14 +101,7 @@ function loadData() {
 	currentTheme = localStorage.getItem("theme") || "light";
 }
 
-function updateLang() {
-	document.querySelector("#langBtn").textContent = currentLang.toUpperCase();
-	document.querySelectorAll("[lang]='" + currentLang + "'").hide();
-	document.querySelector("html").setAttribute("lang", currentLang);
-	document.querySelectorAll("[lang='" + currentLang + "']").toggle();
-}
-
-function updateTheme() {
+function updateHtmlAndBody() {
 	const html = document.querySelector("html");
 	const body = document.querySelector("body");
 
