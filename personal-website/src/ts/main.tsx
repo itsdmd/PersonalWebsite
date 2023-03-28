@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import animatePageTransition from "./components/page-router";
 import header from "./components/header";
-import { updatePage } from "./components/page-settings";
+import { attachEL } from "./components/page-settings";
 
 // set default language and theme if localStorage is empty
 if (localStorage.getItem("lang") === null) {
@@ -16,9 +16,16 @@ if (localStorage.getItem("theme") === null) {
 	localStorage.setItem("theme", "light");
 }
 
+let isAttached: boolean = false;
 function App() {
+	console.log("[fn] App called");
+
 	useEffect(() => {
-		updatePage();
+		if (isAttached) return;
+
+		isAttached = true;
+		console.log("[fn] App useEffect called");
+		attachEL();
 	}, []);
 
 	return (

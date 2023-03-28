@@ -629,8 +629,32 @@ video {
   top: 9.5rem;
 }
 
+.right-4 {
+  right: 1rem;
+}
+
+.right-6 {
+  right: 1.5rem;
+}
+
+.top-\[5\.5rem\] {
+  top: 5.5rem;
+}
+
+.top-\[7\.5rem\] {
+  top: 7.5rem;
+}
+
+.top-\[6\.5rem\] {
+  top: 6.5rem;
+}
+
 .z-50 {
   z-index: 50;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .float-right {
@@ -792,6 +816,12 @@ video {
 .scale-\[2\.5\] {
   --tw-scale-x: 2.5;
   --tw-scale-y: 2.5;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.scale-\[2\] {
+  --tw-scale-x: 2;
+  --tw-scale-y: 2;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
