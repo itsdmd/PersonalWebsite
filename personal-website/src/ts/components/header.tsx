@@ -46,15 +46,17 @@ function headerLogo() {
 	return (
 		<NavLink to="/" className="md:-translate-y-2">
 			<motion.div
-				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 mt-2 p-4 rounded-3xl shadow-l-bg-dark"
+				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 mt-2 p-4 md:rounded-3xl rounded-2xl shadow-l-bg-dark"
 				initial="rest"
 				whileHover="hover"
 				whileTap="tap"
 				variants={logoContainerMotion}
 			>
 				<motion.div className="flex items-center" variants={logoMotion}>
-					<h1 className="_logo-icon -translate-y-0.5 dark:text-white font-black font-display md:text-5xl mr-8 text-3xl text-l-black">D</h1>
-					<h1 className="_logo-text -translate-y-0.5 dark:text-white font-display md:text-3xl text-l-black text-xl">
+					<h1 className="_logo-icon -translate-y-0.5 dark:text-white font-black font-display md:text-5xl sm:mr-6 sm:ml-2 mr-4 text-3xl text-l-black">
+						D
+					</h1>
+					<h1 className="_logo-text -translate-y-0.5 dark:text-white font-display md:text-3xl text-l-black text-xl sm:mr-2">
 						<span lang="en" className={enClass}>
 							Duc Dao
 						</span>
