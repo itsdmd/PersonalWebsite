@@ -25,7 +25,7 @@ function greetingCard() {
 						transition={{ delay: 0.2, duration: 0.5 }}
 					>
 						Xin chào!{" "}
-						<IcRoundWavingHand className="dark:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] float-right inline-block translate-x-8 dark:text-white text-l-orange" />
+						<IcRoundWavingHand className="dark:drop-shadow-[0_8px_8px_rgba(255,184,108,0.3)] float-right inline-block translate-x-8 dark:text-d-orange text-l-orange" />
 					</motion.h1>
 					<hr className="border-none m-5" />
 				</div>

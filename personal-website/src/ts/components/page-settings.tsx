@@ -1,87 +1,91 @@
 export let currentLang: string = "";
 export let currentTheme: string = "";
 
-waitForElm("#langBtn").then((elm: any) => {
-	loadData();
+export function updatePage() {
+	waitForElm("#langBtn").then((elm: any) => {
+		loadData();
 
-	const html = document.querySelector("html");
-	const langBtn = document.querySelector("#langBtn");
+		const html = document.querySelector("html");
+		const langBtn = document.querySelector("#langBtn");
 
-	if (html === null || langBtn === null) {
-		console.error("html or langBtn is null");
-		return;
-	}
-
-	// Update html lang attribute
-	html.setAttribute("lang", currentLang);
-
-	// Update button content
-	langBtn.textContent = currentLang.toUpperCase();
-
-	// Hide all elements of the opposite language
-	document.querySelectorAll("[lang='" + prevLang(currentLang) + "']").forEach((elm) => {
-		elm.classList.add("hidden");
-	});
-
-	// Add event listener for button
-	elm.addEventListener("click", () => {
-		currentLang = nextLang(currentLang);
-		console.log("language changed to " + currentLang);
-
-		html.setAttribute("lang", currentLang);
-
-		elm.textContent = currentLang.toUpperCase();
-
-		document.querySelectorAll("[lang]").forEach((elm) => {
-			if (elm.tagName !== "HTML") {
-				elm.classList.toggle("hidden");
-			}
-		});
-
-		saveData();
-	});
-});
-
-waitForElm("#themeBtn").then((elm: any) => {
-	loadData();
-
-	const html = document.querySelector("html");
-	const lightThemeIcon = document.querySelector("#lightThemeIcon");
-	const darkThemeIcon = document.querySelector("#darkThemeIcon");
-
-	if (html === null || lightThemeIcon === null || darkThemeIcon === null) {
-		console.error("html or lightIcon or darkIcon is null");
-		return;
-	}
-
-	elm.addEventListener("click", () => {
-		console.log("toggle language");
-		currentTheme = currentTheme === "light" ? "dark" : "light";
-
-		switch (currentTheme) {
-			case "light": {
-				lightThemeIcon.classList.remove("hidden");
-				darkThemeIcon.classList.add("hidden");
-				break;
-			}
-
-			case "dark": {
-				lightThemeIcon.classList.add("hidden");
-				darkThemeIcon.classList.remove("hidden");
-				break;
-			}
-
-			default: {
-				console.error("Invalid theme");
-				break;
-			}
+		if (html === null || langBtn === null) {
+			console.error("html or langBtn is null");
+			return;
 		}
 
-		saveData();
+		// Update html lang attribute
+		html.setAttribute("lang", currentLang);
 
-		updateHtmlAndBody();
+		// Update button content
+		langBtn.textContent = currentLang.toUpperCase();
+
+		// Hide all elements of the opposite language
+		document.querySelectorAll("[lang='" + prevLang(currentLang) + "']").forEach((elm) => {
+			elm.classList.add("hidden");
+		});
+
+		// Add event listener for button
+		elm.addEventListener("click", () => {
+			currentLang = nextLang(currentLang);
+			console.log("language changed to " + currentLang);
+
+			html.setAttribute("lang", currentLang);
+
+			elm.textContent = currentLang.toUpperCase();
+
+			document.querySelectorAll("[lang]").forEach((elm) => {
+				if (elm.tagName !== "HTML") {
+					elm.classList.toggle("hidden");
+				}
+			});
+
+			saveData();
+		});
 	});
-});
+
+	waitForElm("#themeBtn").then((elm: any) => {
+		loadData();
+
+		const html = document.querySelector("html");
+		const lightThemeIcon = document.querySelector("#lightThemeIcon");
+		const darkThemeIcon = document.querySelector("#darkThemeIcon");
+
+		if (html === null || lightThemeIcon === null || darkThemeIcon === null) {
+			console.error("html or lightIcon or darkIcon is null");
+			return;
+		}
+
+		elm.addEventListener("click", () => {
+			console.log("toggle language");
+			currentTheme = currentTheme === "light" ? "dark" : "light";
+
+			switch (currentTheme) {
+				case "light": {
+					lightThemeIcon.classList.remove("hidden");
+					darkThemeIcon.classList.add("hidden");
+					break;
+				}
+
+				case "dark": {
+					lightThemeIcon.classList.add("hidden");
+					darkThemeIcon.classList.remove("hidden");
+					break;
+				}
+
+				default: {
+					console.error("Invalid theme");
+					break;
+				}
+			}
+
+			saveData();
+
+			updateHtmlAndBody();
+		});
+	});
+}
+
+updatePage();
 
 // https://stackoverflow.com/a/61511955
 function waitForElm(selector: string) {

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import animatePageTransition from "./components/page-router";
 import header from "./components/header";
+import { updatePage } from "./components/page-settings";
 
 // set default language and theme if localStorage is empty
 if (localStorage.getItem("lang") === null) {
@@ -16,6 +17,10 @@ if (localStorage.getItem("theme") === null) {
 }
 
 function App() {
+	useEffect(() => {
+		updatePage();
+	}, []);
+
 	return (
 		<div className="bg-l-bg-page dark:bg-d-bg-page">
 			{header()}

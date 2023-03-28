@@ -40,8 +40,11 @@ function headerLogo() {
 		},
 	};
 
+	let enClass = localStorage.getItem("lang") === "en" ? "" : "hidden";
+	let vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
+
 	return (
-		<NavLink to="/" className="-translate-y-2">
+		<NavLink to="/" className="md:-translate-y-2">
 			<motion.div
 				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 mt-2 p-4 rounded-3xl shadow-l-bg-dark"
 				initial="rest"
@@ -51,7 +54,14 @@ function headerLogo() {
 			>
 				<motion.div className="flex items-center" variants={logoMotion}>
 					<h1 className="_logo-icon -translate-y-0.5 dark:text-white font-black font-display md:text-5xl mr-8 text-3xl text-l-black">D</h1>
-					<h1 className="_logo-text -translate-y-0.5 dark:text-white font-display md:text-3xl text-l-black text-xl">itsdmd</h1>
+					<h1 className="_logo-text -translate-y-0.5 dark:text-white font-display md:text-3xl text-l-black text-xl">
+						<span lang="en" className={enClass}>
+							Duc Dao
+						</span>
+						<span lang="vn" className={vnClass}>
+							Minh Đức
+						</span>
+					</h1>
 				</motion.div>
 			</motion.div>
 		</NavLink>
@@ -139,8 +149,8 @@ function headerNavbar() {
 	return (
 		<div>
 			<nav>
-				<ul className="_navbar dark:text-white flex flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:text-center space-y-2">
-					<div className="dark:text-white flex flex-col justify-around md:flex-row md:items-center md:justify-between md:space-x-8 md:translate-y-0 sm:text-center text-l-black text-right translate-y-2">
+				<ul className="_navbar dark:text-white flex flex-row md:items-center md:justify-end md:space-x-8 space-x-4 md:space-y-0 sm:text-center space-y-2">
+					<div className="dark:text-white flex flex-col justify-around md:flex-row md:items-center md:justify-between lg:space-x-8 md:translate-y-0 sm:text-center text-l-black text-right translate-y-2">
 						{navElement("Projects", "Dự án", "/projects")}
 						{navElement("Contact", "Liên hệ", "/contact")}
 					</div>
