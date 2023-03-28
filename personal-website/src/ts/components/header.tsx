@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MdDarkMode, MdWbSunny } from "react-icons/md";
+import MaterialSymbolsSunnyRounded from "~icons/material-symbols/sunny-rounded";
+import MaterialSymbolsDarkModeRounded from "~icons/material-symbols/dark-mode-rounded";
 
 function header() {
 	console.log("[fn] header called");
@@ -125,8 +126,8 @@ function settingCombo() {
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
 				whileTap={{ boxShadow: "inset 0px 2px 12px rgba(0,0,0,0.4)" }}
 			>
-				<MdWbSunny id="lightThemeIcon" className="m-auto relative" />
-				<MdDarkMode id="darkThemeIcon" className="m-auto relative hidden" />
+				<MaterialSymbolsSunnyRounded id="lightThemeIcon" className="m-auto relative" />
+				<MaterialSymbolsDarkModeRounded id="darkThemeIcon" className="m-auto relative hidden" />
 			</motion.button>
 		</div>
 	);

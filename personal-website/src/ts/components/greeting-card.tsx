@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import { MdWavingHand } from "react-icons/md";
+import IcRoundWavingHand from "~icons/ic/round-waving-hand";
 
 function greetingCard() {
 	return (
@@ -25,7 +25,7 @@ function greetingCard() {
 						transition={{ delay: 0.2, duration: 0.5 }}
 					>
 						Xin chào!{" "}
-						<MdWavingHand className="dark:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] float-right inline-block translate-x-8 dark:text-white text-l-orange" />
+						<IcRoundWavingHand className="dark:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] float-right inline-block translate-x-8 dark:text-white text-l-orange" />
 					</motion.h1>
 					<hr className="border-none m-5" />
 				</div>
