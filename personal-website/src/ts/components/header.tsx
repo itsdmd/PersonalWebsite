@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, transform } from "framer-motion";
+
 import MaterialSymbolsSunnyRounded from "~icons/material-symbols/sunny-rounded";
 import MaterialSymbolsDarkModeRounded from "~icons/material-symbols/dark-mode-rounded";
+import MaterialSymbolsMenuRounded from "~icons/material-symbols/menu-rounded";
+import MdiChevronRightBox from "~icons/mdi/chevron-right-box";
 
 function header() {
 	console.log("[fn] header called");
@@ -46,7 +50,7 @@ function headerLogo() {
 	return (
 		<NavLink to="/" className="md:-translate-y-2">
 			<motion.div
-				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 mt-2 p-4 md:rounded-3xl rounded-2xl shadow-l-bg-dark"
+				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 md:mt-2 p-4 md:rounded-3xl rounded-2xl shadow-l-bg-dark"
 				initial="rest"
 				whileHover="hover"
 				whileTap="tap"
@@ -119,8 +123,7 @@ function settingCombo() {
 		<div className="flex-col flex items-center justify-center">
 			{/* button for language */}
 			<motion.button
-				id="langBtn"
-				className="bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold font-monospace h-10 my-2 px-4 py-2 rounded-xl text-center text-l-black w-14"
+				className="_langBtn bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold font-monospace h-10 my-2 px-4 py-2 rounded-xl text-center text-l-black w-14"
 				type="button"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
@@ -131,15 +134,14 @@ function settingCombo() {
 
 			{/* button for theme */}
 			<motion.button
-				id="themeBtn"
-				className="bg-l-bg-dark dark:bg-d-bg font-bold h-10 my-2 px-4 py-2 rounded-xl w-14"
+				className="_themeBtn bg-l-bg-dark dark:bg-d-bg font-bold h-10 my-2 px-4 py-2 rounded-xl w-14"
 				type="button"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
 				whileTap={{ boxShadow: "inset 0px 2px 12px rgba(0,0,0,0.4)" }}
 			>
-				<MaterialSymbolsSunnyRounded id="lightThemeIcon" className="m-auto relative" />
-				<MaterialSymbolsDarkModeRounded id="darkThemeIcon" className="m-auto relative hidden" />
+				<MaterialSymbolsSunnyRounded className="_lightThemeIcon m-auto relative" />
+				<MaterialSymbolsDarkModeRounded className="_darkThemeIcon m-auto relative hidden" />
 			</motion.button>
 		</div>
 	);
@@ -148,16 +150,46 @@ function settingCombo() {
 function headerNavbar() {
 	console.log("[fn] headerNavbar called");
 
+	const [opacity, setOpacity] = useState(1);
+
 	return (
 		<div>
 			<nav>
-				<ul className="_navbar dark:text-white flex flex-row md:items-center md:justify-end md:space-x-8 space-x-4 md:space-y-0 sm:text-center space-y-2">
-					<div className="dark:text-white flex flex-col justify-around md:flex-row md:items-center md:justify-between lg:space-x-8 md:translate-y-0 sm:text-center text-l-black text-right translate-y-2">
+				<ul className="_navbar dark:text-white flex-row hidden md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:flex space-x-4 space-y-2">
+					<div className="dark:text-white flex flex-col justify-around lg:space-x-8 md:flex-row md:items-center md:justify-between md:translate-y-0 sm:text-center text-l-black translate-y-2">
 						{navElement("Projects", "Dự án", "/projects")}
 						{navElement("Contact", "Liên hệ", "/contact")}
 					</div>
 					{settingCombo()}
 				</ul>
+
+				<motion.div
+					className="_navbarToggle absolute cursor-pointer right-12 scale-[2.5] sm:hidden top-[4.2rem]"
+					animate={{ opacity: opacity }}
+					onClick={() => {
+						setOpacity(Math.abs(opacity - 1));
+					}}
+				>
+					<MaterialSymbolsMenuRounded className="_navbarToggleIcon" />
+				</motion.div>
+
+				<motion.div animate={{ x: 250 * Math.abs(opacity) }}>
+					<motion.ul className="_navbarSM dark:text-white flex flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:hidden sm:text-center space-x-4 space-y-2">
+						<motion.div
+							className="relative cursor-pointer right-2 scale-x-[2] scale-y-[3] top-[9.5rem]"
+							onClick={() => {
+								setOpacity(Math.abs(opacity - 1));
+							}}
+						>
+							<MdiChevronRightBox />
+						</motion.div>
+						<div className="dark:text-white flex flex-col justify-around lg:space-x-8 md:flex-row md:items-center md:justify-between md:translate-y-0 sm:hidden text-l-black text-right translate-y-2">
+							{navElement("Projects", "Dự án", "/projects")}
+							{navElement("Contact", "Liên hệ", "/contact")}
+						</div>
+						{settingCombo()}
+					</motion.ul>
+				</motion.div>
 			</nav>
 		</div>
 	);

@@ -2,11 +2,11 @@ export let currentLang: string = "";
 export let currentTheme: string = "";
 
 export function updatePage() {
-	waitForElm("#langBtn").then((elm: any) => {
+	waitForElm("._langBtn").then((elm: any) => {
 		loadData();
 
 		const html = document.querySelector("html");
-		const langBtn = document.querySelector("#langBtn");
+		const langBtn = document.querySelector("._langBtn");
 
 		if (html === null || langBtn === null) {
 			console.error("html or langBtn is null");
@@ -43,12 +43,12 @@ export function updatePage() {
 		});
 	});
 
-	waitForElm("#themeBtn").then((elm: any) => {
+	waitForElm("._themeBtn").then((elm: any) => {
 		loadData();
 
 		const html = document.querySelector("html");
-		const lightThemeIcon = document.querySelector("#lightThemeIcon");
-		const darkThemeIcon = document.querySelector("#darkThemeIcon");
+		const lightThemeIcon = document.querySelector("._lightThemeIcon");
+		const darkThemeIcon = document.querySelector("._darkThemeIcon");
 
 		if (html === null || lightThemeIcon === null || darkThemeIcon === null) {
 			console.error("html or lightIcon or darkIcon is null");

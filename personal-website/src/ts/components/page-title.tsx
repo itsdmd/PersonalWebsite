@@ -7,7 +7,7 @@ function pageTitle(titleEN: string, titleVN: string) {
 	const vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
 
 	return (
-		<div className="flex justify-center w-full" id="page-title">
+		<div className="_page-title flex justify-center w-full">
 			<div className="flex flex-col items-center w-5/6">
 				<motion.h1
 					className="dark:text-d-white font-bold font-display md:pt-80 md:text-7xl pt-60 shadow-gray-light text-5xl text-center text-l-black text-shadow-lg"
