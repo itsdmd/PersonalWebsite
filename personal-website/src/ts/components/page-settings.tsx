@@ -9,6 +9,7 @@ export function attachEL() {
 	/* #region  */
 	const html = document.querySelector("html");
 	const body = document.querySelector("body");
+	const title = document.querySelector("title");
 
 	if (html === null) {
 		console.error("html is null");
@@ -17,6 +18,11 @@ export function attachEL() {
 
 	if (body === null) {
 		console.error("body is null");
+		return;
+	}
+
+	if (title === null) {
+		console.error("title is null");
 		return;
 	}
 	/* #endregion */
@@ -53,8 +59,10 @@ export function attachEL() {
 		langBtn.textContent = currentLang.toUpperCase();
 
 		document.querySelectorAll("[lang]").forEach((elm) => {
-			if (elm.tagName !== "HTML") {
-				elm.classList.toggle("hidden");
+			if (elm.getAttribute("lang") !== currentLang) {
+				elm.classList.add("hidden");
+			} else {
+				elm.classList.remove("hidden");
 			}
 		});
 
@@ -139,8 +147,10 @@ export function attachEL() {
 		langBtnSM.textContent = currentLang.toUpperCase();
 
 		document.querySelectorAll("[lang]").forEach((elm) => {
-			if (elm.tagName !== "HTML") {
-				elm.classList.toggle("hidden");
+			if (elm.getAttribute("lang") !== currentLang) {
+				elm.classList.add("hidden");
+			} else {
+				elm.classList.remove("hidden");
 			}
 		});
 

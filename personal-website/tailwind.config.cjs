@@ -45,7 +45,7 @@ module.exports = {
 			fontFamily: {
 				sans: ["Be Vietnam Pro", "sans-serif"],
 				serif: ["Roboto Slab", "serif"],
-				monospace: ["SourceCodePro", "monospace"],
+				monospace: ["SourceCodePro", "sans-serif"],
 				display: ["Montserrat", "sans-serif"],
 			},
 			screens: {
