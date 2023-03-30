@@ -14,9 +14,12 @@ function App() {
 		if (isAttached) return;
 
 		isAttached = true;
-		updatePage();
 		attachEL();
 	}, []);
+
+	useEffect(() => {
+		updatePage();
+	});
 
 	return (
 		<div className="bg-l-bg-page dark:bg-d-bg-page">

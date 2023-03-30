@@ -127,7 +127,7 @@ function settingCombo(type: string) {
 				className={
 					"_langBtn" +
 					type +
-					" bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold font-monospace h-10 my-2 px-4 py-2 rounded-xl text-center text-l-black w-14"
+					" bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold font-monospace h-10 my-2 rounded-lg sm:px-4 sm:py-2 sm:rounded-xl sm:text-base sm:w-14 text-center text-l-black text-xs w-8"
 				}
 				type="button"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
@@ -139,7 +139,11 @@ function settingCombo(type: string) {
 
 			{/* button for theme */}
 			<motion.button
-				className={"_themeBtn" + type + " bg-l-bg-dark dark:bg-d-bg font-bold h-10 my-2 px-4 py-2 rounded-xl w-14"}
+				className={
+					"_themeBtn" +
+					type +
+					" bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold font-monospace h-10 my-2 rounded-lg sm:px-4 sm:py-2 sm:rounded-xl sm:text-base sm:w-14 text-center text-l-black text-xs w-8"
+				}
 				type="button"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
@@ -168,10 +172,10 @@ function headerNavbar() {
 					{settingCombo("")}
 				</ul>
 
-				<motion.div animate={{ x: 170 * Math.abs(opacity) }}>
-					<motion.ul className="_navbarSm dark:text-white flex flex-row md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:hidden sm:text-center space-x-4 space-y-2 z-1">
+				<motion.div animate={{ x: 145 * Math.abs(opacity) }}>
+					<motion.ul className="_navbarSm dark:text-white flex flex-row md:items-center sm:hidden sm:text-center z-1">
 						<motion.div
-							className="_navbarSmIcon relative cursor-pointer right-6 scale-[3] top-[9.5rem]"
+							className="_navbarSmIcon relative cursor-pointer right-12 scale-[3] top-[8.5rem]"
 							onClick={() => {
 								setOpacity(Math.abs(opacity - 1));
 								document.querySelector("._navbarSmIcon")?.children[0].classList.toggle("hidden");
@@ -179,13 +183,13 @@ function headerNavbar() {
 							}}
 						>
 							<MaterialSymbolsMenuRounded />
-							<TablerCircleChevronRight className="hidden" />
+							<TablerCircleChevronRight className="hidden bg-l-bg-dark dark:bg-d-bg-dark rounded-[50%]" />
 						</motion.div>
-						<div className="dark:text-white flex flex-col justify-around lg:space-x-8 md:flex-row md:items-center md:justify-between md:translate-y-0 sm:hidden text-l-black text-right translate-y-2">
+						<div className="dark:text-white flex flex-col justify-around mr-4 sm:hidden text-l-black text-right translate-y-2">
 							{navElement("Projects", "Dự án", "/projects")}
 							{navElement("Contact", "Liên hệ", "/contact")}
 						</div>
-						{settingCombo("SM")}
+						{settingCombo("Sm")}
 					</motion.ul>
 				</motion.div>
 			</nav>

@@ -10,13 +10,13 @@ export function attachEL() {
 	const body = document.querySelector("body");
 	const title = document.querySelector("title");
 	const langBtn = document.querySelector("._langBtn");
-	const langBtnSm = document.querySelector("._langBtnSM");
+	const langBtnSm = document.querySelector("._langBtnSm");
 	const themeBtn = document.querySelector("._themeBtn");
+	const themeBtnSm = document.querySelector("._themeBtnSm");
 	const lightThemeIcon = document.querySelector("._lightThemeIcon");
 	const darkThemeIcon = document.querySelector("._darkThemeIcon");
-	const themeBtnSm = document.querySelector("._themeBtnSM");
-	const lightThemeIconSm = document.querySelector("._lightThemeIconSM");
-	const darkThemeIconSm = document.querySelector("._darkThemeIconSM");
+	const lightThemeIconSm = document.querySelector("._lightThemeIconSm");
+	const darkThemeIconSm = document.querySelector("._darkThemeIconSm");
 
 	if (html === null) {
 		console.error("html is null");
@@ -39,12 +39,7 @@ export function attachEL() {
 	}
 
 	if (langBtnSm === null) {
-		console.error("langBtnSM is null");
-		return;
-	}
-
-	if (lightThemeIcon === null || darkThemeIcon === null) {
-		console.error("themeIcon is null");
+		console.error("langBtnSm is null");
 		return;
 	}
 
@@ -53,20 +48,25 @@ export function attachEL() {
 		return;
 	}
 
-	if (lightThemeIconSm === null || darkThemeIconSm === null) {
-		console.error("themeIconSM is null");
+	if (lightThemeIcon === null || darkThemeIcon === null) {
+		console.error("themeIcon is null");
 		return;
 	}
 
 	if (themeBtnSm === null) {
-		console.error("themeBtnSM is null");
+		console.error("themeBtnSm is null");
 		return;
 	}
-	/* #endregion */
+
+	if (lightThemeIconSm === null || darkThemeIconSm === null) {
+		console.error("themeIconSm is null");
+		return;
+	}
 
 	const allLangBtns: Element[] = [langBtn, langBtnSm];
 	const allLightThemeIcons: Element[] = [lightThemeIcon, lightThemeIconSm];
 	const allDarkThemeIcons: Element[] = [darkThemeIcon, darkThemeIconSm];
+	/* #endregion */
 
 	/* ------------- langBtn ------------ */
 	langBtn.addEventListener("click", () => {
@@ -74,7 +74,7 @@ export function attachEL() {
 		updateLang(html, allLangBtns);
 	});
 
-	/* ------------ langBtnSM ----------- */
+	/* ------------ langBtnSm ----------- */
 	langBtnSm.addEventListener("click", () => {
 		currentLang = nextLang(currentLang);
 		updateLang(html, allLangBtns);
@@ -86,7 +86,7 @@ export function attachEL() {
 		updateTheme(html, body, allLightThemeIcons, allDarkThemeIcons);
 	});
 
-	/* ----------- themeBtnSM ----------- */
+	/* ----------- themeBtnSm ----------- */
 	themeBtnSm.addEventListener("click", () => {
 		currentTheme = currentTheme === "light" ? "dark" : "light";
 		updateTheme(html, body, allLightThemeIcons, allDarkThemeIcons);
@@ -166,13 +166,13 @@ export function updatePage() {
 	const body = document.querySelector("body");
 	const title = document.querySelector("title");
 	const langBtn = document.querySelector("._langBtn");
-	const langBtnSm = document.querySelector("._langBtnSM");
+	const langBtnSm = document.querySelector("._langBtnSm");
 	const themeBtn = document.querySelector("._themeBtn");
+	const themeBtnSm = document.querySelector("._themeBtnSm");
 	const lightThemeIcon = document.querySelector("._lightThemeIcon");
 	const darkThemeIcon = document.querySelector("._darkThemeIcon");
-	const themeBtnSM = document.querySelector("._themeBtnSM");
-	const lightThemeIconSM = document.querySelector("._lightThemeIconSM");
-	const darkThemeIconSM = document.querySelector("._darkThemeIconSM");
+	const lightThemeIconSm = document.querySelector("._lightThemeIconSm");
+	const darkThemeIconSm = document.querySelector("._darkThemeIconSm");
 
 	if (html === null) {
 		console.error("html is null");
@@ -195,12 +195,7 @@ export function updatePage() {
 	}
 
 	if (langBtnSm === null) {
-		console.error("langBtnSM is null");
-		return;
-	}
-
-	if (lightThemeIcon === null || darkThemeIcon === null) {
-		console.error("themeIcon is null");
+		console.error("langBtnSm is null");
 		return;
 	}
 
@@ -209,21 +204,28 @@ export function updatePage() {
 		return;
 	}
 
-	if (lightThemeIconSM === null || darkThemeIconSM === null) {
-		console.error("themeIconSM is null");
+	if (lightThemeIcon === null || darkThemeIcon === null) {
+		console.error("themeIcon is null");
 		return;
 	}
 
-	if (themeBtnSM === null) {
-		console.error("themeBtnSM is null");
+	if (themeBtnSm === null) {
+		console.error("themeBtnSm is null");
 		return;
 	}
+
+	if (lightThemeIconSm === null || darkThemeIconSm === null) {
+		console.error("themeIconSm is null");
+		return;
+	}
+
+	const allLangBtns: Element[] = [langBtn, langBtnSm];
+	const allLightThemeIcons: Element[] = [lightThemeIcon, lightThemeIconSm];
+	const allDarkThemeIcons: Element[] = [darkThemeIcon, darkThemeIconSm];
 	/* #endregion */
 
-	updateLang(html, langBtn);
-	updateLang(html, langBtnSm);
-	updateTheme(html, body, lightThemeIcon, darkThemeIcon);
-	updateTheme(html, body, lightThemeIconSM, darkThemeIconSM);
+	updateLang(html, allLangBtns);
+	updateTheme(html, body, allLightThemeIcons, allDarkThemeIcons);
 }
 
 function saveData() {
