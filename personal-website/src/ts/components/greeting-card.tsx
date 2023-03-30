@@ -11,7 +11,7 @@ const greetingCardPortraitImg = () => (
 		animate={{ opacity: 1 }}
 		transition={{ delay: 0.5, duration: 0.5 }}
 	>
-		<LazyLoadImage src="/src/assets/img/self-portrait.webp" alt="Portrait of Minh Duc Dao" effect="blur" />
+		<LazyLoadImage src="/src/assets/img/self-portrait.webp" alt="Portrait of Minh Duc Dao" effect="blur" visibleByDefault={true} />
 	</motion.div>
 );
 
@@ -25,30 +25,16 @@ function greetingCard() {
 				transition={{ delay: 0.5, duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
 			></motion.div>
 			<motion.div
-				className="_greeting-card bg-l-bg dark:bg-d-bg drop-shadow-2xl flex h-32 items-center justify-start lg:h-80 max-w-7xl md:h-64 md:mt-80 md:rounded-3xl mt-60 rounded-xl sm:h-52 w-11/12 xl:h-96"
+				className="_greeting-card bg-l-bg dark:bg-d-bg drop-shadow-2xl flex h-32 items-center justify-start lg:h-80 max-w-7xl md:h-64 md:mt-80 md:px-4 md:rounded-3xl mt-60 rounded-xl sm:h-52 sm:px-2 w-11/12 xl:h-96"
 				initial={{ y: "2.5rem" }}
 				animate={{ y: 0 }}
 				transition={{ duration: 0.75 }}
 			>
-				<div className="_greeting-card-portrait-wrapper basis-2/5 flex h-full items-end justify-cent lg:ml-12 md:ml-6er">
+				<div className="_greeting-card-portrait-wrapper basis-2/5 flex h-full items-end justify-cent lg:ml-12 md:ml-6 ml-2 sm:ml-4">
 					{greetingCardPortraitImg()}
 				</div>
 
 				<div className="_greeting-card-text basis-3/5 flex flex-col font-bold font-display lg:ml-12 md:ml-6 ml-2 translate-y-4">
-					{/* <motion.h2
-						className="_greeting-card-text-greeting lg:block hidden"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.2, duration: 0.5 }}
-					>
-						<motion.div className="dark:shadow-d-bg-light dark:text-gray-300 lg:text-2xl md:text-lg shadow-gray-200 sm:text-sm text-gray-500 text-shadow-lg text-xs">
-							<span lang="vn">Xin chào!</span>
-							<span lang="en">Hello!</span>
-							<span>
-								<IcRoundWavingHand className="-translate-y-1 dark:drop-shadow-[0_8px_8px_rgba(255,184,108,0.3)] dark:text-d-orange inline-block lg:translate-x-8 md:translate-x-4 sm:-translate-y-2 text-l-orange translate-x-2" />
-							</span>
-						</motion.div>
-					</motion.h2> */}
 					<motion.h1>
 						<motion.div
 							initial={{ opacity: 0 }}
