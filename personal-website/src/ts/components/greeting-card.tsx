@@ -60,7 +60,7 @@ function greetingCard() {
 								<span lang="vn">Mình là</span>
 								<span lang="en">I am</span>
 							</div>
-							<div className="_greeting-card-text-info-name dark:shadow-d-bg-light dark:text-l-bg-light lg:text-5xl md:text-4xl shadow-gray-200 sm:text-3xl text-l-black text-shadow-lg text-xl xl:text-6xl">
+							<div className="_greeting-card-text-info-name dark:shadow-d-bg-light dark:text-l-bg-light lg:text-5xl md:text-4xl shadow-gray-300 sm:text-3xl text-l-black text-shadow-lg text-xl xl:text-6xl">
 								<span lang="vn">Đào Minh Đức</span>
 								<span lang="en">Duc Minh Dao</span>
 							</div>
