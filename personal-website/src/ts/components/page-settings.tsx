@@ -66,11 +66,13 @@ export function attachEL() {
 
 	/* ------------- langBtn ------------ */
 	langBtn.addEventListener("click", () => {
+		currentLang = nextLang(currentLang);
 		updateLang(html, langBtn);
 	});
 
 	/* ------------ langBtnSM ----------- */
 	langBtnSm.addEventListener("click", () => {
+		currentLang = nextLang(currentLang);
 		updateLang(html, langBtnSm);
 	});
 
@@ -86,7 +88,6 @@ export function attachEL() {
 }
 
 export function updateLang(html: HTMLElement, langBtn: Element) {
-	currentLang = nextLang(currentLang);
 	console.log("[nm] language changed to " + currentLang);
 
 	html.setAttribute("lang", currentLang);
