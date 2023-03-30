@@ -64,36 +64,43 @@ export function attachEL() {
 	}
 	/* #endregion */
 
+	const allLangBtns: Element[] = [langBtn, langBtnSm];
+	const allLightThemeIcons: Element[] = [lightThemeIcon, lightThemeIconSm];
+	const allDarkThemeIcons: Element[] = [darkThemeIcon, darkThemeIconSm];
+
 	/* ------------- langBtn ------------ */
 	langBtn.addEventListener("click", () => {
 		currentLang = nextLang(currentLang);
-		updateLang(html, langBtn);
+		updateLang(html, allLangBtns);
 	});
 
 	/* ------------ langBtnSM ----------- */
 	langBtnSm.addEventListener("click", () => {
 		currentLang = nextLang(currentLang);
-		updateLang(html, langBtnSm);
+		updateLang(html, allLangBtns);
 	});
 
 	/* ------------- themeBtn ------------ */
 	themeBtn.addEventListener("click", () => {
 		currentTheme = currentTheme === "light" ? "dark" : "light";
-		updateTheme(html, body, lightThemeIcon, darkThemeIcon);
+		updateTheme(html, body, allLightThemeIcons, allDarkThemeIcons);
 	});
 
 	/* ----------- themeBtnSM ----------- */
 	themeBtnSm.addEventListener("click", () => {
 		currentTheme = currentTheme === "light" ? "dark" : "light";
-		updateTheme(html, body, lightThemeIconSm, darkThemeIconSm);
+		updateTheme(html, body, allLightThemeIcons, allDarkThemeIcons);
 	});
 }
 
-export function updateLang(html: HTMLElement, langBtn: Element) {
+export function updateLang(html: HTMLElement, allLangBtns: Element[]) {
 	console.log("[nm] language changed to " + currentLang);
 
 	html.setAttribute("lang", currentLang);
-	langBtn.textContent = currentLang.toUpperCase();
+
+	for (let i = 0; i < allLangBtns.length; i++) {
+		allLangBtns[i].textContent = currentLang.toUpperCase();
+	}
 
 	document.querySelectorAll("[lang]").forEach((elm) => {
 		if (elm.tagName === "HTML") return;
@@ -108,23 +115,37 @@ export function updateLang(html: HTMLElement, langBtn: Element) {
 	saveData();
 }
 
-export function updateTheme(html: HTMLElement, body: HTMLElement, lightThemeIcon: Element, darkThemeIcon: Element) {
+export function updateTheme(html: HTMLElement, body: HTMLElement, allLightThemeIcons: Element[], allDarkThemeIcons: Element[]) {
 	console.log("changed to theme " + currentTheme);
 
 	switch (currentTheme) {
 		case "light": {
 			html.classList.remove("dark");
 			body.classList.remove("dark:bg-d-black");
-			lightThemeIcon.classList.remove("hidden");
-			darkThemeIcon.classList.add("hidden");
+
+			for (let i = 0; i < allLightThemeIcons.length; i++) {
+				allLightThemeIcons[i].classList.remove("hidden");
+			}
+
+			for (let i = 0; i < allDarkThemeIcons.length; i++) {
+				allDarkThemeIcons[i].classList.add("hidden");
+			}
+
 			break;
 		}
 
 		case "dark": {
 			html.classList.add("dark");
 			body.classList.add("dark:bg-d-black");
-			lightThemeIcon.classList.add("hidden");
-			darkThemeIcon.classList.remove("hidden");
+
+			for (let i = 0; i < allLightThemeIcons.length; i++) {
+				allLightThemeIcons[i].classList.add("hidden");
+			}
+
+			for (let i = 0; i < allDarkThemeIcons.length; i++) {
+				allDarkThemeIcons[i].classList.remove("hidden");
+			}
+
 			break;
 		}
 
