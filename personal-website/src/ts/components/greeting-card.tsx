@@ -35,34 +35,38 @@ function greetingCard() {
 				</div>
 
 				<div className="_greeting-card-text basis-3/5 flex flex-col font-bold font-display lg:ml-12 md:ml-6 ml-2 translate-y-4">
-					<motion.h2
-						className="_greeting-card-text-greeting dark:shadow-d-bg-light dark:text-gray-300 shadow-gray-200 text-gray-500 text-shadow-lg"
+					{/* <motion.h2
+						className="_greeting-card-text-greeting lg:block hidden"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.2, duration: 0.5 }}
 					>
-						<motion.div className="lg:text-4xl md:text-2xl sm:text-xl text-base">
+						<motion.div className="dark:shadow-d-bg-light dark:text-gray-300 lg:text-2xl md:text-lg shadow-gray-200 sm:text-sm text-gray-500 text-shadow-lg text-xs">
 							<span lang="vn">Xin chào!</span>
 							<span lang="en">Hello!</span>
 							<span>
 								<IcRoundWavingHand className="-translate-y-1 dark:drop-shadow-[0_8px_8px_rgba(255,184,108,0.3)] dark:text-d-orange inline-block lg:translate-x-8 md:translate-x-4 sm:-translate-y-2 text-l-orange translate-x-2" />
 							</span>
 						</motion.div>
-					</motion.h2>
+					</motion.h2> */}
 					<motion.h1>
 						<motion.div
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							transition={{ delay: 0.5, duration: 0.5 }}
-							className="_greeting-card-text-name mt-2 sm:mt-4 lg:mt-8"
+							className="_greeting-card-text-info lg:mt-8 mt-2 sm:mt-4"
 						>
-							<div className="dark:shadow-d-bg-light dark:text-gray-300 lg:text-2xl md:text-lg shadow-gray-200 sm:text-sm text-gray-500 text-shadow-lg text-xs">
+							<div className="_greeting-card-text-info-iam dark:shadow-d-bg-light dark:text-gray-300 lg:text-2xl md:text-lg shadow-gray-200 sm:text-sm text-gray-500 text-shadow-lg text-xs">
 								<span lang="vn">Mình là</span>
 								<span lang="en">I am</span>
 							</div>
-							<div className="dark:shadow-d-bg-light dark:text-l-bg-light lg:text-5xl md:text-4xl shadow-gray-200 sm:text-3xl text-l-black text-shadow-lg text-xl xl:text-6xl">
+							<div className="_greeting-card-text-info-name dark:shadow-d-bg-light dark:text-l-bg-light lg:text-5xl md:text-4xl shadow-gray-200 sm:text-3xl text-l-black text-shadow-lg text-xl xl:text-6xl">
 								<span lang="vn">Đào Minh Đức</span>
 								<span lang="en">Duc Minh Dao</span>
+							</div>
+							<div className="_greeting-card-text-info-specialty dark:shadow-d-bg-light dark:text-gray-300 italic lg:mt-3 lg:text-3xl md:text-xl mt-[0.1rem] shadow-gray-200 sm:mt-2 sm:text-lg text-base text-gray-500 text-shadow-lg">
+								<span lang="vn">Sinh viên CNTT</span>
+								<span lang="en">Computer Science Student</span>
 							</div>
 						</motion.div>
 					</motion.h1>
