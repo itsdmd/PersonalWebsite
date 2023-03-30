@@ -58,9 +58,7 @@ function greetingCard() {
 						>
 							<div className="dark:shadow-d-bg-light dark:text-gray-300 lg:text-2xl md:text-lg shadow-gray-200 sm:text-sm text-gray-500 text-shadow-lg text-xs">
 								<span lang="vn">Mình là</span>
-								<span lang="en" className="sm:inline-block hidden">
-									I am
-								</span>
+								<span lang="en">I am</span>
 							</div>
 							<div className="dark:shadow-d-bg-light dark:text-l-bg-light lg:text-5xl md:text-4xl shadow-gray-200 sm:text-3xl text-l-black text-shadow-lg text-xl xl:text-6xl">
 								<span lang="vn">Đào Minh Đức</span>
