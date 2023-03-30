@@ -78,11 +78,13 @@ export function attachEL() {
 
 	/* ------------- themeBtn ------------ */
 	themeBtn.addEventListener("click", () => {
+		currentTheme = currentTheme === "light" ? "dark" : "light";
 		updateTheme(html, body, lightThemeIcon, darkThemeIcon);
 	});
 
 	/* ----------- themeBtnSM ----------- */
 	themeBtnSm.addEventListener("click", () => {
+		currentTheme = currentTheme === "light" ? "dark" : "light";
 		updateTheme(html, body, lightThemeIconSm, darkThemeIconSm);
 	});
 }
@@ -107,7 +109,6 @@ export function updateLang(html: HTMLElement, langBtn: Element) {
 }
 
 export function updateTheme(html: HTMLElement, body: HTMLElement, lightThemeIcon: Element, darkThemeIcon: Element) {
-	currentTheme = currentTheme === "light" ? "dark" : "light";
 	console.log("changed to theme " + currentTheme);
 
 	switch (currentTheme) {
