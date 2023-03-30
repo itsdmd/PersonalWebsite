@@ -11,7 +11,7 @@ const greetingCardPortraitImg = () => (
 		animate={{ opacity: 1 }}
 		transition={{ delay: 0.5, duration: 0.5 }}
 	>
-		<LazyLoadImage src="/src/assets/img/self-portrait.png" alt="Portrait of Minh Duc Dao" effect="blur" />
+		<LazyLoadImage src="/src/assets/img/self-portrait.webp" alt="Portrait of Minh Duc Dao" effect="blur" />
 	</motion.div>
 );
 
