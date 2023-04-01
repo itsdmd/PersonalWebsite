@@ -7,14 +7,14 @@ const ScrollLink = Scroll.Link;
 import MaterialSymbolsSunnyRounded from "~icons/material-symbols/sunny-rounded";
 import MaterialSymbolsDarkModeRounded from "~icons/material-symbols/dark-mode-rounded";
 import MaterialSymbolsMenuRounded from "~icons/material-symbols/menu-rounded";
-import TablerCircleChevronRight from "~icons/tabler/circle-chevron-right";
+import MaterialSymbolsCloseRounded from "~icons/material-symbols/close-rounded";
 
 function header() {
 	console.log("[fn] header called");
 
 	return (
 		<div className="_header-wrapper fixed flex justify-center w-full z-50">
-			<div className="_header backdrop-blur-lg bg-l-bg-dark bg-opacity-50 dark:bg-d-bg-dark dark:bg-opacity-50 dark:drop-shadow-2xl drop-shadow-2xl flex h-18 items-center justify-between lg:pl-20 lg:pr-20 lg:w-screen md:p-10 md:pl-15 md:pr-15 md:rounded-b-3xl mt-0 p-5 rounded-b-xl w-screen xl:w-11/12">
+			<div className="_header backdrop-blur-lg bg-l-bg-dark bg-opacity-50 dark:bg-d-bg-dark dark:bg-opacity-50 dark:drop-shadow-2xl drop-shadow-2xl flex sm:h-fit h-28 items-center justify-between lg:pl-20 lg:pr-20 lg:w-screen md:p-10 md:pl-15 md:pr-15 md:rounded-b-3xl mt-0 p-5 rounded-b-xl w-screen xl:w-11/12">
 				{headerLogo()}
 				{headerNavbar()}
 			</div>
@@ -94,8 +94,8 @@ function navLink(textEN: string, textVN: string, link: string) {
 		},
 	};
 
-	const li_classes = `_navbar-${textEN.toLowerCase()} font-display md:text-2xl sm:w-40 text-lg`;
-	const sl_activeClasses = `active bg:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.1)] font-bold md:text-3xl text-xl`;
+	const li_classes = `_navbar-${textEN.toLowerCase()} font-display sm:w-40 text-2xl`;
+	const sl_activeClasses = `active bg:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.1)] font-bold text-3xl`;
 
 	let enClass = localStorage.getItem("lang") === "en" ? "" : "hidden";
 	let vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
@@ -121,15 +121,13 @@ function navLink(textEN: string, textVN: string, link: string) {
 
 // language + theme switcher
 function settingCombo(type: string) {
+	const btnClasses = `bg-l-bg-dark dark:bg-d-bg dark:text-d-white flex-row font-bold font-monospace h-10 items-center justify-center rounded-lg sm:flex sm:my-2 sm:px-4 sm:py-2 sm:rounded-xl sm:text-base sm:w-14 text-center text-l-black text-base w-24`;
+
 	return (
-		<div className="flex-col flex items-center justify-center">
+		<div className="flex items-center justify-center sm:flex-col sm:space-x-0 space-x-8">
 			{/* button for language */}
 			<motion.button
-				className={
-					"_langBtn" +
-					type +
-					" bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold font-monospace h-10 my-2 rounded-lg sm:px-4 sm:py-2 sm:rounded-xl sm:text-base sm:w-14 text-center text-l-black text-xs w-8"
-				}
+				className={"_langBtn" + type + " " + btnClasses}
 				type="button"
 				name="languageSwitcher"
 				aria-label="Change language"
@@ -142,11 +140,7 @@ function settingCombo(type: string) {
 
 			{/* button for theme */}
 			<motion.button
-				className={
-					"_themeBtn" +
-					type +
-					" bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold font-monospace h-10 my-2 rounded-lg sm:px-4 sm:py-2 sm:rounded-xl sm:text-base sm:w-14 text-center text-l-black text-xs w-8"
-				}
+				className={"_themeBtn" + type + " " + btnClasses}
 				type="button"
 				name="themeSwitcher"
 				aria-label="Change theme"
@@ -169,6 +163,7 @@ function headerNavbar() {
 	return (
 		<div>
 			<nav>
+				{/* Desktop */}
 				<div className="_navbar dark:text-white flex-row hidden md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:flex space-x-4 space-y-2">
 					<ul className="dark:text-white flex flex-col justify-around lg:space-x-8 md:flex-row md:items-center md:justify-between md:translate-y-0 sm:text-center text-l-black translate-y-2">
 						{navLink("Projects", "Dự án", "projects")}
@@ -177,24 +172,31 @@ function headerNavbar() {
 					{settingCombo("")}
 				</div>
 
-				<motion.div animate={{ x: 145 * Math.abs(opacity) }}>
-					<motion.div className="_navbarSm dark:text-white flex flex-row md:items-center sm:hidden sm:text-center z-1">
-						<motion.div
-							className="_navbarSmIcon relative cursor-pointer right-12 scale-[3] top-[8.5rem]"
-							onClick={() => {
-								setOpacity(Math.abs(opacity - 1));
-								document.querySelector("._navbarSmIcon")?.children[0].classList.toggle("hidden");
-								document.querySelector("._navbarSmIcon")?.children[1].classList.toggle("hidden");
-							}}
-						>
-							<MaterialSymbolsMenuRounded />
-							<TablerCircleChevronRight className="hidden bg-l-bg-dark dark:bg-d-bg-dark rounded-[50%]" />
-						</motion.div>
-						<div className="dark:text-white flex flex-col justify-around mr-4 sm:hidden text-l-black text-right translate-y-2">
+				{/* Mobile */}
+				<motion.div className="_navbarSm dark:text-white md:items-center sm:hidden sm:text-center">
+					<motion.div
+						className="_navbarSmIcon absolute cursor-pointer right-12 scale-[3] top-[2.75rem] z-20"
+						onClick={() => {
+							setOpacity(Math.abs(opacity - 1));
+							document.querySelector("._navbarSmIcon")?.children[0].classList.toggle("hidden");
+							document.querySelector("._navbarSmIcon")?.children[1].classList.toggle("hidden");
+						}}
+					>
+						<MaterialSymbolsMenuRounded />
+						<MaterialSymbolsCloseRounded className="hidden" />
+					</motion.div>
+					<motion.div
+						className="absolute backdrop-blur-lg bg-l-bg-dark bg-opacity-50 dark:bg-d-bg-dark dark:bg-opacity-50 dark:drop-shadow-2xl drop-shadow-2xl flex items-center justify-center max-h-26 right-0 rounded-b-xl top-24 w-full z-10"
+						animate={{
+							// y: 100 * Math.abs(opacity - 1),
+							opacity: Math.abs(opacity - 1), // 112px = 7rem = h-28
+						}}
+					>
+						<ul className="dark:text-white justify-around p-8 sm:hidden text-center text-l-black space-y-8">
 							{navLink("Projects", "Dự án", "projects")}
 							{navLink("Contact", "Liên hệ", "contact")}
-						</div>
-						{settingCombo("Sm")}
+							{settingCombo("Sm")}
+						</ul>
 					</motion.div>
 				</motion.div>
 			</nav>
