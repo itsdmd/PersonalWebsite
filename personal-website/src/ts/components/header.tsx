@@ -189,10 +189,13 @@ function headerNavbar() {
 						<MaterialSymbolsCloseRounded className="hidden" />
 					</motion.div>
 					<motion.div
-						className="absolute backdrop-blur-lg bg-l-bg-dark bg-opacity-50 dark:bg-d-bg-dark dark:bg-opacity-50 flex items-center justify-center max-h-26 right-0 rounded-b-xl top-24 w-full z-10"
+						className="absolute backdrop-blur-lg bg-l-bg-dark bg-opacity-50 dark:bg-d-bg-dark dark:bg-opacity-50 flex items-center justify-center max-h-26 right-0 rounded-b-xl -top-60 w-full z-10"
 						animate={{
-							// y: 100 * Math.abs(opacity - 1),
-							opacity: Math.abs(opacity - 1), // 112px = 7rem = h-28
+							y: 340 * Math.abs(opacity - 1), // 112px = 7rem = h-28
+							opacity: Math.abs(opacity - 1),
+						}}
+						transition={{
+							ease: "backInOut",
 						}}
 					>
 						<ul className="dark:text-white justify-around p-8 sm:hidden text-center text-l-black space-y-8">

@@ -1,3 +1,8 @@
+* {
+	/* change text selection color */
+	-webkit-tap-highlight-color: #bd93f9;
+}
+
 /* https://stackoverflow.com/a/47873463 */
 ._greeting-card-portrait-wrapper {
 	clip-path: inset(-100vw -100vw 0 -100vw);

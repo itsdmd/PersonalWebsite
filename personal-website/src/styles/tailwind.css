@@ -585,6 +585,26 @@ video {
   top: 6rem;
 }
 
+.-top-28 {
+  top: -7rem;
+}
+
+.-top-64 {
+  top: -16rem;
+}
+
+.-top-52 {
+  top: -13rem;
+}
+
+.-top-56 {
+  top: -14rem;
+}
+
+.-top-60 {
+  top: -15rem;
+}
+
 .z-50 {
   z-index: 50;
 }
