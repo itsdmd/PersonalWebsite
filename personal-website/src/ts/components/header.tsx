@@ -50,7 +50,7 @@ function headerLogo() {
 	let vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
 
 	return (
-		<ScrollLink to="greeting" className="md:-translate-y-2" smooth={true} spy={true}>
+		<ScrollLink to="greeting" className="hover:cursor-pointer md:-translate-y-2" smooth={true} spy={true}>
 			<motion.div
 				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 md:mt-2 p-4 md:rounded-3xl rounded-2xl shadow-l-bg-dark"
 				initial="rest"
@@ -94,16 +94,19 @@ function navLink(textEN: string, textVN: string, link: string) {
 		},
 	};
 
-	const li_classes = `_navbar-${textEN.toLowerCase()} font-display sm:w-40 text-2xl`;
-	const sl_activeClasses = `active bg:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.1)] font-bold text-3xl`;
-
 	let enClass = localStorage.getItem("lang") === "en" ? "" : "hidden";
 	let vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
 
 	return (
-		<motion.li className={li_classes} initial="rest" whileHover="hover">
+		<motion.li className={"_navbar-" + textEN.toLowerCase() + " hover:cursor-pointer font-display sm:w-40 text-2xl"} initial="rest" whileHover="hover">
 			<motion.div variants={textMotion}>
-				<ScrollLink to={link} activeClass={sl_activeClasses} smooth={true} spy={true} hashSpy={true}>
+				<ScrollLink
+					to={link}
+					activeClass="0,0,0.1)] font-bold text-3xl,1)] drop-shadow-[0_8px_16px_rgba(0,114,164,active bg:drop-shadow-[0_8px_16px_rgba(98"
+					smooth={true}
+					spy={true}
+					hashSpy={true}
+				>
 					<span lang="en" className={enClass}>
 						{textEN}
 					</span>
