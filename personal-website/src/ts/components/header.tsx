@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import * as Scroll from "react-scroll";
 import { motion } from "framer-motion";
+
+const ScrollLink = Scroll.Link;
 
 import MaterialSymbolsSunnyRounded from "~icons/material-symbols/sunny-rounded";
 import MaterialSymbolsDarkModeRounded from "~icons/material-symbols/dark-mode-rounded";
 import MaterialSymbolsMenuRounded from "~icons/material-symbols/menu-rounded";
-import MaterialSymbolsCancelOutlineRounded from "~icons/material-symbols/cancel-outline-rounded";
 import TablerCircleChevronRight from "~icons/tabler/circle-chevron-right";
 
 function header() {
@@ -49,7 +50,7 @@ function headerLogo() {
 	let vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
 
 	return (
-		<NavLink to="/" className="md:-translate-y-2">
+		<ScrollLink to="greeting-section" className="md:-translate-y-2" smooth={true} spy={true}>
 			<motion.div
 				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 md:mt-2 p-4 md:rounded-3xl rounded-2xl shadow-l-bg-dark"
 				initial="rest"
@@ -71,7 +72,7 @@ function headerLogo() {
 					</h1>
 				</motion.div>
 			</motion.div>
-		</NavLink>
+		</ScrollLink>
 	);
 }
 
@@ -94,7 +95,7 @@ function navElement(textEN: string, textVN: string, link: string) {
 	};
 
 	const li_classes = `_navbar-${textEN.toLowerCase()} font-display md:text-2xl sm:w-40 text-lg`;
-	const nl_activeClasses = `active bg:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.1)] font-bold md:text-3xl text-xl`;
+	const sl_activeClasses = `active bg:drop-shadow-[0_8px_16px_rgba(98,114,164,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.1)] font-bold md:text-3xl text-xl`;
 
 	let enClass = localStorage.getItem("lang") === "en" ? "" : "hidden";
 	let vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
@@ -102,7 +103,7 @@ function navElement(textEN: string, textVN: string, link: string) {
 	return (
 		<motion.li className={li_classes} initial="rest" whileHover="hover">
 			<motion.div variants={textMotion}>
-				<NavLink to={link} className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? nl_activeClasses : "")}>
+				<ScrollLink to={link} activeClass={sl_activeClasses} smooth={true} spy={true}>
 					<span lang="en" className={enClass}>
 						{textEN}
 					</span>
@@ -112,7 +113,7 @@ function navElement(textEN: string, textVN: string, link: string) {
 					<div className="flex justify-center">
 						<motion.hr className="border-l-black dark:border-d-white mt-3 opacity-50" variants={hrMotion} />
 					</div>
-				</NavLink>
+				</ScrollLink>
 			</motion.div>
 		</motion.li>
 	);
@@ -166,8 +167,8 @@ function headerNavbar() {
 			<nav>
 				<ul className="_navbar dark:text-white flex-row hidden md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:flex space-x-4 space-y-2">
 					<div className="dark:text-white flex flex-col justify-around lg:space-x-8 md:flex-row md:items-center md:justify-between md:translate-y-0 sm:text-center text-l-black translate-y-2">
-						{navElement("Projects", "Dự án", "/projects")}
-						{navElement("Contact", "Liên hệ", "/contact")}
+						{navElement("Projects", "Dự án", "projects-section")}
+						{navElement("Contact", "Liên hệ", "contact-section")}
 					</div>
 					{settingCombo("")}
 				</ul>
@@ -186,8 +187,8 @@ function headerNavbar() {
 							<TablerCircleChevronRight className="hidden bg-l-bg-dark dark:bg-d-bg-dark rounded-[50%]" />
 						</motion.div>
 						<div className="dark:text-white flex flex-col justify-around mr-4 sm:hidden text-l-black text-right translate-y-2">
-							{navElement("Projects", "Dự án", "/projects")}
-							{navElement("Contact", "Liên hệ", "/contact")}
+							{navElement("Projects", "Dự án", "projects-section")}
+							{navElement("Contact", "Liên hệ", "contact-section")}
 						</div>
 						{settingCombo("Sm")}
 					</motion.ul>
