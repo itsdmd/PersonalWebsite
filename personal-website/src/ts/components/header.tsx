@@ -132,6 +132,7 @@ function settingCombo(type: string) {
 				}
 				type="button"
 				name="languageSwitcher"
+				aria-label="Change language"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
 				whileTap={{ boxShadow: "inset 0px 2px 12px rgba(0,0,0,0.4)" }}
@@ -148,6 +149,7 @@ function settingCombo(type: string) {
 				}
 				type="button"
 				name="themeSwitcher"
+				aria-label="Change theme"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
 				whileTap={{ boxShadow: "inset 0px 2px 12px rgba(0,0,0,0.4)" }}
@@ -167,13 +169,13 @@ function headerNavbar() {
 	return (
 		<div>
 			<nav>
-				<ul className="_navbar dark:text-white flex-row hidden md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:flex space-x-4 space-y-2">
-					<div className="dark:text-white flex flex-col justify-around lg:space-x-8 md:flex-row md:items-center md:justify-between md:translate-y-0 sm:text-center text-l-black translate-y-2">
+				<div className="_navbar dark:text-white flex-row hidden md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:flex space-x-4 space-y-2">
+					<ul className="dark:text-white flex flex-col justify-around lg:space-x-8 md:flex-row md:items-center md:justify-between md:translate-y-0 sm:text-center text-l-black translate-y-2">
 						{navLink("Projects", "Dự án", "projects")}
 						{navLink("Contact", "Liên hệ", "contact")}
-					</div>
+					</ul>
 					{settingCombo("")}
-				</ul>
+				</div>
 
 				<motion.div animate={{ x: 145 * Math.abs(opacity) }}>
 					<motion.div className="_navbarSm dark:text-white flex flex-row md:items-center sm:hidden sm:text-center z-1">
