@@ -50,7 +50,7 @@ function headerLogo() {
 	let vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
 
 	return (
-		<ScrollLink to="greeting-section" className="md:-translate-y-2" smooth={true} spy={true}>
+		<ScrollLink to="greeting" className="md:-translate-y-2" smooth={true} spy={true}>
 			<motion.div
 				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 md:mt-2 p-4 md:rounded-3xl rounded-2xl shadow-l-bg-dark"
 				initial="rest"
@@ -76,7 +76,7 @@ function headerLogo() {
 	);
 }
 
-function navElement(textEN: string, textVN: string, link: string) {
+function navLink(textEN: string, textVN: string, link: string) {
 	console.log('[fn] navElement called for "' + textEN + '":' + link);
 
 	const textMotion = {
@@ -103,7 +103,7 @@ function navElement(textEN: string, textVN: string, link: string) {
 	return (
 		<motion.li className={li_classes} initial="rest" whileHover="hover">
 			<motion.div variants={textMotion}>
-				<ScrollLink to={link} activeClass={sl_activeClasses} smooth={true} spy={true}>
+				<ScrollLink to={link} activeClass={sl_activeClasses} smooth={true} spy={true} hashSpy={true}>
 					<span lang="en" className={enClass}>
 						{textEN}
 					</span>
@@ -131,6 +131,7 @@ function settingCombo(type: string) {
 					" bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold font-monospace h-10 my-2 rounded-lg sm:px-4 sm:py-2 sm:rounded-xl sm:text-base sm:w-14 text-center text-l-black text-xs w-8"
 				}
 				type="button"
+				name="languageSwitcher"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
 				whileTap={{ boxShadow: "inset 0px 2px 12px rgba(0,0,0,0.4)" }}
@@ -146,6 +147,7 @@ function settingCombo(type: string) {
 					" bg-l-bg-dark dark:bg-d-bg dark:text-d-white font-bold font-monospace h-10 my-2 rounded-lg sm:px-4 sm:py-2 sm:rounded-xl sm:text-base sm:w-14 text-center text-l-black text-xs w-8"
 				}
 				type="button"
+				name="themeSwitcher"
 				initial={{ boxShadow: "inset 0px 2px 4px rgba(0,0,0,0.4)" }}
 				whileHover={{ boxShadow: "inset 0px 2px 8px rgba(0,0,0,0.4)" }}
 				whileTap={{ boxShadow: "inset 0px 2px 12px rgba(0,0,0,0.4)" }}
@@ -167,8 +169,8 @@ function headerNavbar() {
 			<nav>
 				<ul className="_navbar dark:text-white flex-row hidden md:items-center md:justify-end md:space-x-8 md:space-y-0 sm:flex space-x-4 space-y-2">
 					<div className="dark:text-white flex flex-col justify-around lg:space-x-8 md:flex-row md:items-center md:justify-between md:translate-y-0 sm:text-center text-l-black translate-y-2">
-						{navElement("Projects", "Dự án", "projects-section")}
-						{navElement("Contact", "Liên hệ", "contact-section")}
+						{navLink("Projects", "Dự án", "projects")}
+						{navLink("Contact", "Liên hệ", "contact")}
 					</div>
 					{settingCombo("")}
 				</ul>
@@ -187,8 +189,8 @@ function headerNavbar() {
 							<TablerCircleChevronRight className="hidden bg-l-bg-dark dark:bg-d-bg-dark rounded-[50%]" />
 						</motion.div>
 						<div className="dark:text-white flex flex-col justify-around mr-4 sm:hidden text-l-black text-right translate-y-2">
-							{navElement("Projects", "Dự án", "projects-section")}
-							{navElement("Contact", "Liên hệ", "contact-section")}
+							{navLink("Projects", "Dự án", "projects")}
+							{navLink("Contact", "Liên hệ", "contact")}
 						</div>
 						{settingCombo("Sm")}
 					</motion.ul>
