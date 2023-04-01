@@ -11,13 +11,13 @@ function animatePageTransition() {
 	return (
 		<AnimatePresence>
 			<React.Fragment>
-				<Element id="greeting-section" name="greeting-section">
+				<Element id="greeting" name="greeting">
 					{Greeting()}
 				</Element>
-				<Element id="projects-section" name="projects-section">
+				<Element id="projects" name="projects">
 					{Projects()}
 				</Element>
-				<Element id="contact-section" name="contact-section">
+				<Element id="contact" name="contact">
 					{Contact()}
 				</Element>
 			</React.Fragment>

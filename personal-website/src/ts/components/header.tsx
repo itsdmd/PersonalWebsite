@@ -176,7 +176,7 @@ function headerNavbar() {
 				</ul>
 
 				<motion.div animate={{ x: 145 * Math.abs(opacity) }}>
-					<motion.ul className="_navbarSm dark:text-white flex flex-row md:items-center sm:hidden sm:text-center z-1">
+					<motion.div className="_navbarSm dark:text-white flex flex-row md:items-center sm:hidden sm:text-center z-1">
 						<motion.div
 							className="_navbarSmIcon relative cursor-pointer right-12 scale-[3] top-[8.5rem]"
 							onClick={() => {
@@ -193,7 +193,7 @@ function headerNavbar() {
 							{navLink("Contact", "Liên hệ", "contact")}
 						</div>
 						{settingCombo("Sm")}
-					</motion.ul>
+					</motion.div>
 				</motion.div>
 			</nav>
 		</div>
