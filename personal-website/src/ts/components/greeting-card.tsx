@@ -17,13 +17,13 @@ function greetingCard() {
 	return (
 		<div className="_greeting-card-wrapper flex justify-center relative">
 			<motion.div
-				className="_greeting-card-shadow absolute bg-gray-300 blur-xl dark:bg-d-bg drop-shadow-2xl flex h-32 items-center justify-center lg:h-80 max-w-[82rem] md:h-64 md:mt-[21rem] md:rounded-3xl mt-[16rem] rounded-xl sm:h-52 w-11/12 xl:h-96"
+				className="_greeting-card-shadow absolute bg-gray-300 blur-xl dark:bg-d-bg drop-shadow-2xl flex h-32 items-center justify-center lg:h-80 max-w-[82rem] md:h-64 md:mt-[21rem] md:rounded-3xl sm:mt-[17rem] mt-[13rem] rounded-xl sm:h-52 w-11/12 xl:h-96"
 				// initial={{ opacity: 0 }}
 				// animate={{ opacity: 1 }}
 				// transition={{ delay: 0.5, duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
 			></motion.div>
 			<motion.div
-				className="_greeting-card bg-l-bg dark:bg-d-bg drop-shadow-2xl flex h-32 items-center justify-start lg:h-80 max-w-7xl md:h-64 md:mt-80 md:px-4 md:rounded-3xl mt-60 rounded-xl sm:h-52 sm:px-2 w-11/12 xl:h-96"
+				className="_greeting-card bg-l-bg dark:bg-d-bg drop-shadow-2xl flex h-32 items-center justify-start lg:h-80 max-w-7xl md:h-64 md:mt-80 md:px-4 md:rounded-3xl sm:mt-[16rem] mt-[12rem] rounded-xl sm:h-52 sm:px-2 w-11/12 xl:h-96"
 				// initial={{ y: "2.5rem" }}
 				// animate={{ y: 0 }}
 				// transition={{ duration: 0.75 }}
