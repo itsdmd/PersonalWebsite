@@ -52,7 +52,7 @@ function headerLogo() {
 	return (
 		<ScrollLink to="greeting" className="hover:cursor-pointer md:-translate-y-2" smooth={true} spy={true}>
 			<motion.div
-				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:p-6 md:mt-2 p-4 md:rounded-3xl rounded-2xl shadow-l-bg-dark"
+				className="_logo bg-l-bg-dark dark:bg-d-bg-dark dark:shadow-d-bg-dark md:mt-2 md:p-6 md:rounded-3xl p-4 rounded-2xl shadow-l-bg-dark"
 				initial="rest"
 				whileHover="hover"
 				whileTap="tap"

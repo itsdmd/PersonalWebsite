@@ -9,6 +9,7 @@ let isAttached: boolean = false;
 function App() {
 	console.log("[fn] App called");
 
+	// attach eventListeners for header's buttons on first render
 	useEffect(() => {
 		if (isAttached) return;
 
@@ -16,6 +17,7 @@ function App() {
 		attachEL();
 	}, []);
 
+	// update page based on settings
 	useEffect(() => {
 		updatePage();
 	});
