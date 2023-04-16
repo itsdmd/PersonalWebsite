@@ -4,7 +4,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 const greetingCardPortraitImg = () => (
 	<motion.div
-		className="lg:translate-y-[8.5rem] md:translate-y-[7rem] sm:translate-y-[5rem] translate-y-[3rem] lg:scale-100 xl:scale-110 md:scale-95 scale-90"
+		className="lg:scale-100 lg:translate-y-[8.5rem] lg:w-[400px] md:scale-95 md:translate-y-[7rem] md:w-[300px] scale-90 sm:translate-y-[5rem] sm:w-[230px] translate-y-[3rem] xl:scale-110 w-[150px]"
 		// initial={{ opacity: 0 }}
 		// animate={{ opacity: 1 }}
 		// transition={{ delay: 0.5, duration: 0.5 }}
@@ -48,7 +48,7 @@ function greetingCard() {
 								<span lang="vn">Đào Minh Đức</span>
 								<span lang="en">Duc Minh Dao</span>
 							</div>
-							<div className="_greeting-card-text-info-specialty dark:shadow-d-bg-light dark:text-gray-300 italic lg:mt-3 lg:text-3xl md:text-xl mt-[0.1rem] shadow-gray-200 sm:mt-2 sm:text-lg text-base text-gray-500 text-shadow-lg">
+							<div className="_greeting-card-text-info-specialty dark:shadow-d-bg-light dark:text-gray-300 italic lg:mt-3 lg:text-3xl md:text-xl mt-[0.1rem] shadow-gray-200 sm:mt-2 sm:text-base text-gray-500 text-shadow-lg text-xs">
 								<span lang="vn">Sinh viên CNTT</span>
 								<span lang="en">Computer Science Student</span>
 							</div>
