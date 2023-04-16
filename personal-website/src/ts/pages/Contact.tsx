@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { cubicBezier, motion } from "framer-motion";
 
 import animatedPage from "../components/animated-page";
 import pageTitle from "../components/page-title";
@@ -9,10 +9,6 @@ import MaterialSymbolsPermPhoneMsgRounded from "~icons/material-symbols/perm-pho
 import MdiGithub from "~icons/mdi/github";
 import MdiFacebook from "~icons/mdi/facebook";
 import MaterialSymbolsLocationOn from "~icons/material-symbols/location-on";
-
-function copyToClipboard(text: string) {
-	navigator.clipboard.writeText(text);
-}
 
 function contactBlock(
 	icon: ReactElement,
@@ -25,12 +21,33 @@ function contactBlock(
 ) {
 	const textMotion = {
 		rest: {
-			translateY: -15,
 			opacity: 0,
+			translateY: "-1rem",
 		},
 		hover: {
-			translateY: -30,
 			opacity: 1,
+			translateY: "-2rem",
+		},
+	};
+
+	const copiedMotion = {
+		rest: {
+			opacity: 0,
+			transition: {
+				delay: 2,
+			},
+		},
+		hover: {
+			opacity: 0,
+			transition: {
+				delay: 2,
+			},
+		},
+		copied: {
+			opacity: 1,
+			transition: {
+				duration: 0.05,
+			},
 		},
 	};
 
@@ -40,7 +57,7 @@ function contactBlock(
 	if (type === "open") {
 		return (
 			<motion.a
-				className="bg-l-bg-dark hover:cursor-pointer xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-lg lg:p-8 md:p-6 p-4 rounded-xl"
+				className="bg-l-bg-dark dark:bg-d-bg-dark dark:text-d-white drop-shadow-xl hover:cursor-pointer lg:p-8 lg:text-3xl md:p-6 md:text-2xl p-4 rounded-xl sm:text-xl text-l-black text-lg xl:text-4xl"
 				href={target}
 				target="_blank"
 				initial="rest"
@@ -49,7 +66,7 @@ function contactBlock(
 				<div className="flex">
 					{icon}
 					&nbsp;&nbsp;&nbsp;
-					<div className="relative">
+					<div className="relative w-full">
 						<div>
 							<span lang="en" className={enClass}>
 								{contentEn}
@@ -58,7 +75,7 @@ function contactBlock(
 								{contentVn}
 							</span>
 						</div>
-						<motion.div className="absolute italic left-0 text-l-black text-xl top-0" variants={textMotion}>
+						<motion.div className="absolute italic left-0 lg:text-xl md:text-base text-xs top-0 w-full" variants={textMotion}>
 							<span lang="en" className={enClass}>
 								{messageEn}
 							</span>
@@ -73,15 +90,18 @@ function contactBlock(
 	} else if (type === "copy") {
 		return (
 			<motion.div
-				className="bg-l-bg-dark hover:cursor-pointer xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-lg lg:p-8 md:p-6 p-4 rounded-xl"
+				className="bg-l-bg-dark dark:bg-d-bg-dark dark:text-d-white drop-shadow-xl hover:cursor-pointer lg:p-8 lg:text-3xl md:p-6 md:text-2xl p-4 rounded-xl sm:text-xl text-l-black text-lg xl:text-4xl"
 				initial="rest"
 				whileHover="hover"
-				onClick={() => copyToClipboard(target)}
+				whileTap="copied"
+				onClick={() => {
+					navigator.clipboard.writeText(target);
+				}}
 			>
 				<div className="flex">
 					{icon}
 					&nbsp;&nbsp;&nbsp;
-					<div className="relative">
+					<div className="relative w-full">
 						<div>
 							<span lang="en" className={enClass}>
 								{contentEn}
@@ -90,12 +110,14 @@ function contactBlock(
 								{contentVn}
 							</span>
 						</div>
-						<motion.div className="absolute italic left-0 text-l-black text-xl top-0" variants={textMotion}>
+						<motion.div className="absolute italic left-0 lg:text-xl md:text-base text-xs top-0 w-full" variants={textMotion}>
 							<span lang="en" className={enClass}>
 								{messageEn}
+								<motion.span variants={copiedMotion}> - copied</motion.span>
 							</span>
 							<span lang="vn" className={vnClass}>
 								{messageVn}
+								<motion.span variants={copiedMotion}> - đã sao chép</motion.span>
 							</span>
 						</motion.div>
 					</div>
@@ -105,14 +127,14 @@ function contactBlock(
 	} else {
 		return (
 			<motion.div
-				className="bg-l-bg-dark xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-lg lg:p-8 md:p-6 p-4 rounded-xl"
+				className="bg-l-bg-dark dark:bg-d-bg-dark dark:text-d-white drop-shadow-xl hover:cursor-pointer lg:p-8 lg:text-3xl md:p-6 md:text-2xl p-4 rounded-xl sm:text-xl text-l-black text-lg xl:text-4xl"
 				initial="rest"
 				whileHover="hover"
 			>
 				<div className="flex">
 					{icon}
 					&nbsp;&nbsp;&nbsp;
-					<div className="relative">
+					<div className="relative w-full">
 						<div>
 							<span lang="en" className={enClass}>
 								{contentEn}
@@ -121,7 +143,7 @@ function contactBlock(
 								{contentVn}
 							</span>
 						</div>
-						<motion.div className="absolute italic left-0 text-l-black text-xl top-0" variants={textMotion}>
+						<motion.div className="absolute italic left-0 lg:text-xl md:text-base text-xs top-0 w-full" variants={textMotion}>
 							<span lang="en" className={enClass}>
 								{messageEn}
 							</span>
@@ -142,7 +164,7 @@ function Contact() {
 			<div className="flex flex-col justify-center md:w-5/6 w-11/12">
 				{animatedPage("contact", [pageTitle("Contact", "Liên hệ")])}
 
-				<div className="gap-6 grid grid-cols-2">
+				<div className="gap-6 grid grid-cols-2 m-auto md:w-11/12 w-full">
 					<div className="col-span-2">
 						{contactBlock(
 							<IcRoundEmail />,
@@ -155,7 +177,7 @@ function Contact() {
 						)}
 					</div>
 					{contactBlock(<MdiGithub />, "itsdmd", "itsdmd", "Visit", "Xem profile", "open", "https://github.com/itsdmd")}
-					{contactBlock(<MdiFacebook />, "itsdmd", "itsdmd", "Visit", "Xem profile", "open", "https://facebook.com/its.dmd")}
+					{contactBlock(<MdiFacebook />, "its.dmd", "its.dmd", "Visit", "Xem profile", "open", "https://facebook.com/its.dmd")}
 					{contactBlock(
 						<MaterialSymbolsPermPhoneMsgRounded />,
 						"+84 932 074 921",
