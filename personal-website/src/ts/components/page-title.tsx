@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 function pageTitle(titleEN: string, titleVN: string) {
-	console.log("[fn] pageTitle called for " + titleEN);
+	// console.log("[fn] pageTitle called for " + titleEN);
 
 	const enClass = localStorage.getItem("lang") === "en" ? "" : "hidden";
 	const vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";

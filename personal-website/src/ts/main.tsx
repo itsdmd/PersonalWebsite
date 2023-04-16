@@ -7,7 +7,7 @@ import { attachEL, updatePage } from "./components/page-settings";
 
 let isAttached: boolean = false;
 function App() {
-	console.log("[fn] App called");
+	// console.log("[fn] App called");
 
 	// attach eventListeners for header's buttons on first render
 	useEffect(() => {

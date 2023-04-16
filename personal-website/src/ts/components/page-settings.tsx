@@ -3,7 +3,7 @@ let currentTheme: string = localStorage.getItem("theme") || "light";
 saveData();
 
 export function attachEL() {
-	console.log("[fn] attachEL called");
+	// console.log("[fn] attachEL called");
 
 	/* #region  */
 	const html = document.querySelector("html");
@@ -94,7 +94,7 @@ export function attachEL() {
 }
 
 export function updateLang(html: HTMLElement, allLangBtns: Element[]) {
-	console.log("[nm] language changed to " + currentLang);
+	// console.log("[nm] language changed to " + currentLang);
 
 	html.setAttribute("lang", currentLang);
 
@@ -116,7 +116,7 @@ export function updateLang(html: HTMLElement, allLangBtns: Element[]) {
 }
 
 export function updateTheme(html: HTMLElement, body: HTMLElement, allLightThemeIcons: Element[], allDarkThemeIcons: Element[]) {
-	console.log("changed to theme " + currentTheme);
+	// console.log("changed to theme " + currentTheme);
 
 	switch (currentTheme) {
 		case "light": {

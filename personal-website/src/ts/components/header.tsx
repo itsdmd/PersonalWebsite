@@ -10,7 +10,7 @@ import MaterialSymbolsMenuRounded from "~icons/material-symbols/menu-rounded";
 import MaterialSymbolsCloseRounded from "~icons/material-symbols/close-rounded";
 
 function header() {
-	console.log("[fn] header called");
+	// console.log("[fn] header called");
 
 	return (
 		<div className="_header-wrapper fixed flex justify-center w-full z-50">
@@ -23,7 +23,7 @@ function header() {
 }
 
 function headerLogo() {
-	console.log("[fn] headerLogo called");
+	// console.log("[fn] headerLogo called");
 
 	const logoContainerMotion = {
 		rest: {
@@ -77,7 +77,7 @@ function headerLogo() {
 }
 
 function navLink(textEN: string, textVN: string, link: string) {
-	console.log('[fn] navElement called for "' + textEN + '":' + link);
+	// console.log('[fn] navElement called for "' + textEN + '":' + link);
 
 	const textMotion = {
 		hover: {
@@ -159,7 +159,7 @@ function settingCombo(type: string) {
 }
 
 function headerNavbar() {
-	console.log("[fn] headerNavbar called");
+	// console.log("[fn] headerNavbar called");
 
 	const [opacity, setOpacity] = useState(1);
 
