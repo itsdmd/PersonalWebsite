@@ -125,6 +125,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-personal-website/vite.config.ts
-playground.mongodb
-personal-website/prisma/migrations/
