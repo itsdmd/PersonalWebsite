@@ -10,7 +10,19 @@ import MdiGithub from "~icons/mdi/github";
 import MdiFacebook from "~icons/mdi/facebook";
 import MaterialSymbolsLocationOn from "~icons/material-symbols/location-on";
 
-function contactBlock(icon: ReactElement, contentEn: string, contentVn: string, url: string = "", messageEn: string = "", messageVn: string = "") {
+function copyToClipboard(text: string) {
+	navigator.clipboard.writeText(text);
+}
+
+function contactBlock(
+	icon: ReactElement,
+	contentEn: string,
+	contentVn: string,
+	messageEn: string = "",
+	messageVn: string = "",
+	type: "copy" | "open" | "none" = "none",
+	target: string = ""
+) {
 	const textMotion = {
 		rest: {
 			translateY: -15,
@@ -25,36 +37,103 @@ function contactBlock(icon: ReactElement, contentEn: string, contentVn: string, 
 	let enClass = localStorage.getItem("lang") === "en" ? "" : "hidden";
 	let vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
 
-	return (
-		<motion.div
-			className="bg-l-bg-dark hover:cursor-pointer xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-lg lg:p-8 md:p-6 p-4 rounded-xl"
-			initial="rest"
-			whileHover="hover"
-		>
-			<div className="flex">
-				{icon}
-				&nbsp;&nbsp;&nbsp;
-				<div className="relative">
-					<a href={url} target="_blank">
-						<span lang="en" className={enClass}>
-							{contentEn}
-						</span>
-						<span lang="vn" className={vnClass}>
-							{contentVn}
-						</span>
-					</a>
-					<motion.div className="absolute italic left-0 text-l-black text-xl top-0" variants={textMotion}>
-						<span lang="en" className={enClass}>
-							{messageEn}
-						</span>
-						<span lang="vn" className={vnClass}>
-							{messageVn}
-						</span>
-					</motion.div>
+	if (type === "open") {
+		return (
+			<motion.a
+				className="bg-l-bg-dark hover:cursor-pointer xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-lg lg:p-8 md:p-6 p-4 rounded-xl"
+				href={target}
+				target="_blank"
+				initial="rest"
+				whileHover="hover"
+			>
+				<div className="flex">
+					{icon}
+					&nbsp;&nbsp;&nbsp;
+					<div className="relative">
+						<div>
+							<span lang="en" className={enClass}>
+								{contentEn}
+							</span>
+							<span lang="vn" className={vnClass}>
+								{contentVn}
+							</span>
+						</div>
+						<motion.div className="absolute italic left-0 text-l-black text-xl top-0" variants={textMotion}>
+							<span lang="en" className={enClass}>
+								{messageEn}
+							</span>
+							<span lang="vn" className={vnClass}>
+								{messageVn}
+							</span>
+						</motion.div>
+					</div>
 				</div>
-			</div>
-		</motion.div>
-	);
+			</motion.a>
+		);
+	} else if (type === "copy") {
+		return (
+			<motion.div
+				className="bg-l-bg-dark hover:cursor-pointer xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-lg lg:p-8 md:p-6 p-4 rounded-xl"
+				initial="rest"
+				whileHover="hover"
+				onClick={() => copyToClipboard(target)}
+			>
+				<div className="flex">
+					{icon}
+					&nbsp;&nbsp;&nbsp;
+					<div className="relative">
+						<div>
+							<span lang="en" className={enClass}>
+								{contentEn}
+							</span>
+							<span lang="vn" className={vnClass}>
+								{contentVn}
+							</span>
+						</div>
+						<motion.div className="absolute italic left-0 text-l-black text-xl top-0" variants={textMotion}>
+							<span lang="en" className={enClass}>
+								{messageEn}
+							</span>
+							<span lang="vn" className={vnClass}>
+								{messageVn}
+							</span>
+						</motion.div>
+					</div>
+				</div>
+			</motion.div>
+		);
+	} else {
+		return (
+			<motion.div
+				className="bg-l-bg-dark xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-lg lg:p-8 md:p-6 p-4 rounded-xl"
+				initial="rest"
+				whileHover="hover"
+			>
+				<div className="flex">
+					{icon}
+					&nbsp;&nbsp;&nbsp;
+					<div className="relative">
+						<div>
+							<span lang="en" className={enClass}>
+								{contentEn}
+							</span>
+							<span lang="vn" className={vnClass}>
+								{contentVn}
+							</span>
+						</div>
+						<motion.div className="absolute italic left-0 text-l-black text-xl top-0" variants={textMotion}>
+							<span lang="en" className={enClass}>
+								{messageEn}
+							</span>
+							<span lang="vn" className={vnClass}>
+								{messageVn}
+							</span>
+						</motion.div>
+					</div>
+				</div>
+			</motion.div>
+		);
+	}
 }
 
 function Contact() {
@@ -69,22 +148,24 @@ function Contact() {
 							<IcRoundEmail />,
 							"duc.dao.431+job@gmail.com",
 							"duc.dao.431+job@gmail.com",
-							"mailto:duc.dao.431+job@gmail.com",
 							"Send email",
-							"Gửi email"
+							"Gửi email",
+							"copy",
+							"duc.dao.431+job@gmail.com"
 						)}
 					</div>
-					{contactBlock(<MdiGithub />, "itsdmd", "itsdmd", "https://github.com/itsdmd", "Visit", "Xem profile")}
-					{contactBlock(<MdiFacebook />, "its.dmd", "its.dmd", "https://facebook.com/its.dmd", "Visit", "Xem profile")}
+					{contactBlock(<MdiGithub />, "itsdmd", "itsdmd", "Visit", "Xem profile", "open", "https://github.com/itsdmd")}
+					{contactBlock(<MdiFacebook />, "itsdmd", "itsdmd", "Visit", "Xem profile", "open", "https://facebook.com/its.dmd")}
 					{contactBlock(
 						<MaterialSymbolsPermPhoneMsgRounded />,
 						"+84 932 074 921",
 						"0932 074 921",
-						"tel:84932074921",
 						"Call / Send SMS",
-						"Gọi điện / Zalo"
+						"Gọi điện / Zalo",
+						"copy",
+						"+84932074921"
 					)}
-					{contactBlock(<MaterialSymbolsLocationOn />, "Ho Chi Minh City, Vietnam", "Quận 1, TP. Hồ Chí Minh", "#contact", "Location", "Địa chỉ")}
+					{contactBlock(<MaterialSymbolsLocationOn />, "Ho Chi Minh City, Vietnam", "Quận 1, TP. Hồ Chí Minh", "Location", "Địa chỉ", "none")}
 				</div>
 			</div>
 		</div>
