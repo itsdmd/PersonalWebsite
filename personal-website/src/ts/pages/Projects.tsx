@@ -18,7 +18,7 @@ function projectBlock(imgUrl: string, titleEn: string, titleVn: string, descript
 
 	return (
 		<div className="bg-l-bg-dark dark:bg-d-bg-dark dark:text-d-white drop-shadow-xl flex flex-col h-fit items-center justify-start md:flex-row overflow-hidden rounded-xl text-l-black w-full">
-			<div className="flex items-center justify-center max-h-[150px] max-w-300 md:h-full md:max-h-none overflow-hidden">
+			<div className="flex items-center justify-center max-h-[150px] max-w-0 md:h-full md:max-h-none md:w-300 min-w-0 overflow-hidden">
 				<LazyLoadImage src={imgUrl} alt={titleEn} placeholderSrc={"/src/assets/img/lazy/grey.png"} effect="blur" />
 			</div>
 			<div className="grow md:px-12 md:py-10 px-6 py-5">
@@ -66,7 +66,7 @@ function Projects() {
 
 				<div className="m-auto md:w-11/12 w-full">
 					{projectBlock(
-						"https://github.com/itsdmd/VietnameseNewsAPI/blob/main/logo.png?raw=true",
+						"/src/assets/img/logo_prj_vnnewsapi.png",
 						"Vietnamese News API",
 						"Vietnamese News API",
 						"Scrape, archive & analyze Vietnamese online news articles.",

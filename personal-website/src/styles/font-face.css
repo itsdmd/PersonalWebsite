@@ -1,0 +1,35 @@
+@font-face {
+	font-family: "SourceCodePro";
+	font-weight: 400;
+	src: url("./src/assets/font/SourceCodePro.ttf") format("truetype"), monospace;
+}
+
+@font-face {
+	font-family: "SourceCodePro";
+	font-weight: 600;
+	src: url("./src/assets/font/SourceCodePro.ttf") format("truetype"), monospace;
+}
+
+@font-face {
+	font-family: "SourceCodePro";
+	font-weight: 900;
+	src: url("./src/assets/font/SourceCodePro.ttf") format("truetype"), monospace;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	font-weight: 500;
+	src: url("./src/assets/font/Montserrat-Medium.woff2") format("woff2"), sans-serif;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	font-weight: 700;
+	src: url("./src/assets/font/Montserrat-Bold.woff2") format("woff2"), sans-serif;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	font-weight: 900;
+	src: url("./src/assets/font/Montserrat-Black.woff2") format("woff2"), sans-serif;
+}
