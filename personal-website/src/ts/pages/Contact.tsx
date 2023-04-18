@@ -5,10 +5,12 @@ import pageTitle from "../components/page-title";
 
 import { ReactElement } from "react";
 import IcRoundEmail from "~icons/ic/round-email";
-import MaterialSymbolsPermPhoneMsgRounded from "~icons/material-symbols/perm-phone-msg-rounded";
-import MdiGithub from "~icons/mdi/github";
-import MdiFacebook from "~icons/mdi/facebook";
+import IcRoundOpenInNew from "~icons/ic/round-open-in-new";
 import MaterialSymbolsLocationOn from "~icons/material-symbols/location-on";
+import MaterialSymbolsPermPhoneMsgRounded from "~icons/material-symbols/perm-phone-msg-rounded";
+import MdiClipboardText from "~icons/mdi/clipboard-text";
+import MdiFacebook from "~icons/mdi/facebook";
+import MdiGithub from "~icons/mdi/github";
 
 function contactBlock(
 	icon: ReactElement,
@@ -56,10 +58,8 @@ function contactBlock(
 
 	if (type === "open") {
 		return (
-			<motion.a
-				className="bg-l-bg-dark dark:bg-d-bg-dark dark:text-d-white drop-shadow-xl hover:cursor-pointer lg:p-8 lg:text-3xl md:p-6 md:text-2xl p-4 rounded-xl sm:text-xl text-l-black text-lg xl:text-4xl"
-				href={target}
-				target="_blank"
+			<motion.div
+				className="bg-l-bg-dark dark:bg-d-bg-dark dark:text-d-white drop-shadow-xl lg:p-8 lg:text-3xl md:p-6 md:text-2xl p-4 rounded-xl sm:text-xl text-l-black text-lg xl:text-4xl"
 				initial="rest"
 				whileHover="hover"
 			>
@@ -67,13 +67,25 @@ function contactBlock(
 					{icon}
 					&nbsp;&nbsp;&nbsp;
 					<div className="relative w-full">
-						<div>
-							<span lang="en" className={enClass}>
-								{contentEn}
-							</span>
-							<span lang="vn" className={vnClass}>
-								{contentVn}
-							</span>
+						<div className="flex justify-between">
+							<div>
+								<span lang="en" className={enClass}>
+									{contentEn}
+								</span>
+								<span lang="vn" className={vnClass}>
+									{contentVn}
+								</span>
+							</div>
+							<motion.a
+								className="cursor-pointer"
+								href={target}
+								target="_blank"
+								whileHover={{
+									scale: 1.2,
+								}}
+							>
+								<IcRoundOpenInNew />
+							</motion.a>
 						</div>
 						<motion.div className="absolute italic left-0 lg:text-xl md:text-base text-xs top-0 w-full" variants={textMotion}>
 							<span lang="en" className={enClass}>
@@ -85,12 +97,12 @@ function contactBlock(
 						</motion.div>
 					</div>
 				</div>
-			</motion.a>
+			</motion.div>
 		);
 	} else if (type === "copy") {
 		return (
 			<motion.div
-				className="bg-l-bg-dark dark:bg-d-bg-dark dark:text-d-white drop-shadow-xl hover:cursor-pointer lg:p-8 lg:text-3xl md:p-6 md:text-2xl p-4 rounded-xl sm:text-xl text-l-black text-lg xl:text-4xl"
+				className="bg-l-bg-dark dark:bg-d-bg-dark dark:text-d-white drop-shadow-xl lg:p-8 lg:text-3xl md:p-6 md:text-2xl p-4 rounded-xl sm:text-xl text-l-black text-lg xl:text-4xl"
 				initial="rest"
 				whileHover="hover"
 				whileTap="copied"
@@ -102,13 +114,26 @@ function contactBlock(
 					{icon}
 					&nbsp;&nbsp;&nbsp;
 					<div className="relative w-full">
-						<div>
-							<span lang="en" className={enClass}>
-								{contentEn}
-							</span>
-							<span lang="vn" className={vnClass}>
-								{contentVn}
-							</span>
+						<div className="flex justify-between">
+							<div>
+								<span lang="en" className={enClass}>
+									{contentEn}
+								</span>
+								<span lang="vn" className={vnClass}>
+									{contentVn}
+								</span>
+							</div>
+							<motion.div
+								className="cursor-pointer"
+								whileHover={{
+									scale: 1.2,
+								}}
+								onTap={() => {
+									navigator.clipboard.writeText(target);
+								}}
+							>
+								<MdiClipboardText />
+							</motion.div>
 						</div>
 						<motion.div className="absolute italic left-0 lg:text-xl md:text-base text-xs top-0 w-full" variants={textMotion}>
 							<span lang="en" className={enClass}>
@@ -180,14 +205,14 @@ function Contact() {
 					{contactBlock(<MdiFacebook />, "its.dmd", "its.dmd", "Visit", "Xem profile", "open", "https://facebook.com/its.dmd")}
 					{contactBlock(
 						<MaterialSymbolsPermPhoneMsgRounded />,
-						"+84 932 074 921",
+						"(+84) 932-074-921",
 						"0932 074 921",
 						"Call / Send SMS",
 						"Gọi điện / Zalo",
 						"copy",
 						"+84932074921"
 					)}
-					{contactBlock(<MaterialSymbolsLocationOn />, "Ho Chi Minh City, Vietnam", "Quận 1, TP. Hồ Chí Minh", "Location", "Địa chỉ", "none")}
+					{contactBlock(<MaterialSymbolsLocationOn />, "Ho Chi Minh City, Vietnam", "Quận 1, TP. Hồ Chí Minh", "", "Địa chỉ", "none")}
 				</div>
 			</div>
 		</div>
