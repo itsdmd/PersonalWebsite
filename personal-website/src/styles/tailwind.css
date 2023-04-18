@@ -962,7 +962,7 @@ video {
 }
 
 .font-monospace {
-  font-family: SourceCodePro, sans-serif;
+  font-family: Source Code Pro, SourceCodePro, monospace;
 }
 
 .text-2xl {
