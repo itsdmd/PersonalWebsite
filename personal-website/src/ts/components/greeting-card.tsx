@@ -32,7 +32,7 @@ function greetingCard() {
 					{greetingCardPortraitImg()}
 				</div>
 
-				<div className="_greeting-card-text basis-3/5 flex flex-col font-bold font-display lg:ml-12 md:ml-6 ml-2 translate-y-4">
+				<div className="_greeting-card-text basis-3/5 flex flex-col font-bold lg:ml-12 md:ml-6 ml-2 translate-y-4">
 					<motion.h1>
 						<motion.div
 							className="_greeting-card-text-info lg:mt-8 mt-2 sm:mt-4"

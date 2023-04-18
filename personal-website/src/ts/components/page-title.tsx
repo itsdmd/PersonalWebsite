@@ -9,7 +9,7 @@ function pageTitle(titleEN: string, titleVN: string) {
 	return (
 		<div className="_page-title flex-col justify-center w-full">
 			<motion.h1
-				className="dark:text-d-white font-bold font-display md:mt-72 md:text-7xl mt-48 shadow-gray-light sm:mt-64 text-5xl text-center text-l-black text-shadow-lg"
+				className="dark:text-d-white font-bold md:mt-72 md:text-7xl mt-48 shadow-gray-light sm:mt-64 text-5xl text-center text-l-black text-shadow-lg"
 				initial={{ opacity: 0, y: 50 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 1 }}

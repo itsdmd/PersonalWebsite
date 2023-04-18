@@ -59,10 +59,8 @@ function headerLogo() {
 				variants={logoContainerMotion}
 			>
 				<motion.div className="flex items-center" variants={logoMotion}>
-					<h1 className="_logo-icon -translate-y-0.5 dark:text-white font-black font-display sm:text-5xl lg:ml-2 lg:mr-4 m-2 text-3xl text-l-black">
-						D
-					</h1>
-					<h1 className="_logo-text -translate-y-0.5 dark:text-white font-display hidden lg:block md:text-3xl sm:mr-2 text-l-black text-xl">
+					<h1 className="_logo-icon -translate-y-0.5 dark:text-white font-black sm:text-5xl lg:ml-2 lg:mr-4 m-2 text-3xl text-l-black">D</h1>
+					<h1 className="_logo-text -translate-y-0.5 dark:text-white hidden lg:block md:text-3xl sm:mr-2 text-l-black text-xl">
 						<span lang="en" className={enClass}>
 							Duc Dao
 						</span>
@@ -98,7 +96,7 @@ function navLink(textEN: string, textVN: string, link: string) {
 	let vnClass = localStorage.getItem("lang") === "vn" ? "" : "hidden";
 
 	return (
-		<motion.li className={"_navbar-" + textEN.toLowerCase() + " hover:cursor-pointer font-display sm:w-40 text-2xl"} initial="rest" whileHover="hover">
+		<motion.li className={"_navbar-" + textEN.toLowerCase() + " hover:cursor-pointer sm:w-40 text-2xl"} initial="rest" whileHover="hover">
 			<motion.div variants={textMotion}>
 				<ScrollLink
 					to={link}

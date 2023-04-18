@@ -43,10 +43,9 @@ module.exports = {
 				"l-black": "#282a36",
 			},
 			fontFamily: {
-				sans: ["Be Vietnam Pro", "sans-serif"],
+				sans: ["Montserrat", "sans-serif"],
 				serif: ["Roboto Slab", "serif"],
 				monospace: ["SourceCodePro", "sans-serif"],
-				display: ["Montserrat", "sans-serif"],
 			},
 			screens: {
 				xs: "400px",
