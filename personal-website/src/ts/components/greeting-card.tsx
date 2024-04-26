@@ -4,12 +4,13 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 const greetingCardPortraitImg = () => (
 	<motion.div
-		className="lg:scale-100 lg:translate-y-[8.5rem] lg:w-[400px] md:scale-95 md:translate-y-[7rem] md:w-[300px] scale-90 sm:translate-y-[5rem] sm:w-[230px] translate-y-[3rem] xl:scale-110 w-[150px]"
-		// initial={{ opacity: 0 }}
-		// animate={{ opacity: 1 }}
-		// transition={{ delay: 0.5, duration: 0.5 }}
+		//className="lg:scale-100 lg:translate-y-[8.5rem] lg:w-[400px] md:scale-95 md:translate-y-[7rem] md:w-[300px] scale-90 sm:translate-y-[5rem] sm:w-[230px] translate-y-[3rem] xl:scale-110 w-[150px]"
+		className="lg:scale-100 lg:w-[400px] md:scale-95 md:w-[300px] scale-90 sm:w-[230px] xl:scale-110 w-[150px]"
+		initial={{ opacity: 0 }}
+		animate={{ opacity: 1 }}
+		transition={{ delay: 0.5, duration: 0.5 }}
 	>
-		<LazyLoadImage src="/src/assets/img/self-portrait.webp" alt="Portrait" effect="blur" placeholderSrc="/src/assets/img/lazy/self-portrait.webp" />
+		<LazyLoadImage src="/src/assets/img/self-portrait.png" alt="Portrait" effect="blur" placeholderSrc="/src/assets/img/lazy/self-portrait.png" />
 	</motion.div>
 );
 
@@ -46,7 +47,7 @@ function greetingCard() {
 							</div>
 							<div className="_greeting-card-text-info-name dark:shadow-d-bg-light dark:text-l-bg-light lg:text-5xl md:text-4xl shadow-gray-300 sm:text-3xl text-l-black text-shadow-lg text-xl xl:text-6xl">
 								<span lang="vn">Đào Minh Đức</span>
-								<span lang="en">Duc Minh Dao</span>
+								<span lang="en">Duc Dao Minh</span>
 							</div>
 							<div className="_greeting-card-text-info-specialty dark:shadow-d-bg-light dark:text-gray-300 italic lg:mt-3 lg:text-3xl md:text-xl mt-[0.1rem] shadow-gray-200 sm:mt-2 sm:text-base text-gray-500 text-shadow-lg text-xs">
 								<span lang="vn">Sinh viên CNTT</span>
